@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu44oecp2lbwy"]
+
+[ext_resource type="Script" uid="uid://ciaih17348nin" path="res://scripts/info_box.gd" id="2_l8v6c"]
+[ext_resource type="LabelSettings" uid="uid://ddud0lt005syb" path="res://resources/text_small.tres" id="3_l8v6c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4ob8"]
+size = Vector2(830, 521)
+
+[node name="Info" type="Label"]
+offset_left = -224.0
+offset_top = -79.0
+offset_right = 236.0
+offset_bottom = 86.0
+label_settings = ExtResource("3_l8v6c")
+script = ExtResource("2_l8v6c")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(245, 91.5)
+shape = SubResource("RectangleShape2D_x4ob8")

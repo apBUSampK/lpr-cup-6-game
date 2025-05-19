@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dig1njq2cft4x"]
+[gd_scene load_steps=7 format=3 uid="uid://dig1njq2cft4x"]
 
 [ext_resource type="Script" uid="uid://brymsdw4n3ro8" path="res://scripts/Elements/mirror.gd" id="1_dqld0"]
 [ext_resource type="Texture2D" uid="uid://dpa8aj3kveqau" path="res://ELEMENT_ASSETS/стекло2.png" id="2_f2jgb"]
@@ -8,6 +8,12 @@ size = Vector2(165, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_js6ei"]
 size = Vector2(200, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2jgb"]
+size = Vector2(9, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_diesq"]
+size = Vector2(12, 31)
 
 [node name="Mirror" type="StaticBody2D"]
 script = ExtResource("1_dqld0")
@@ -43,3 +49,13 @@ offset_top = -48.0
 offset_right = 100.0
 offset_bottom = 48.0
 color = Color(1, 0, 0, 0.501961)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-45.5, -6.5)
+shape = SubResource("RectangleShape2D_f2jgb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(44, -8.5)
+shape = SubResource("RectangleShape2D_diesq")

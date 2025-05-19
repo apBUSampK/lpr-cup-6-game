@@ -11,7 +11,7 @@ func _emit(data: RayData) -> void:
 				ray.setup(data.red_p, data.green_p, data.blue_p, RayIdChecker.get_id(), data.incidence, Vector2.DOWN, Vector2.INF)
 		for i in range(3):
 			rays[data.id][i].global_position = data.incidence
-			rays[data.id][i].global_rotation = -data.heading.angle_to(Vector2.DOWN) + (i - 1) * PI/8
+			rays[data.id][i].global_rotation = -data.heading.angle_to(Vector2.DOWN) + (i - 1) * PI/8 + PI/16
 			rays[data.id][i].setup(data.red_p if i == 0 else 0., data.green_p if i == 1 else 0., data.blue_p if i ==2 else 0,
 			 -1, data.incidence, Vector2.DOWN.rotated(rays[data.id][i].global_rotation), Vector2.INF)
 

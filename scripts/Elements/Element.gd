@@ -2,7 +2,7 @@ class_name Element extends StaticBody2D
 
 @export var Max_Frames_Till_Reset = 2
 @export var rotation_speed = 1.
-@export var area_pickable = true
+@export var redactable = true
 
 var RayScene = preload("res://scenes/Ray.tscn")
 @onready var frames_since_hit : PackedInt32Array
@@ -18,7 +18,6 @@ signal pickable_removed()
 func _ready() -> void:
 	add_to_group("Element", true)
 	
-	exclusion.input_pickable = area_pickable
 	exclusion.global_rotation = 0
 	exclusion.add_to_group("Element_Exclusion", true)
 	
@@ -73,7 +72,7 @@ func _hover_down() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
-			if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.button_index == MOUSE_BUTTON_LEFT and redactable:
 				if carry and not overlapping_element:
 					carry = false
 					excluder.visible = false
