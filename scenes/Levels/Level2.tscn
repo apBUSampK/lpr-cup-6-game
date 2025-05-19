@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://m27c1prg06as" path="res://UI_ASSETS/UI КЛФИ Сфинкс/фон.png" id="2_7dhlb"]
 [ext_resource type="Texture2D" uid="uid://2p6oerfjwue0" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/редактор1.png" id="3_ukhgg"]
 [ext_resource type="Texture2D" uid="uid://trhoq3bn8ard" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/элемент.png" id="4_c3dpg"]
-[ext_resource type="Script" path="res://scripts/spawn.gd" id="5_hvvlp"]
+[ext_resource type="Script" uid="uid://wribtmr82mae" path="res://scripts/spawn.gd" id="5_hvvlp"]
 [ext_resource type="PackedScene" uid="uid://dig1njq2cft4x" path="res://scenes/Elements/Mirror.tscn" id="6_kdmjy"]
 [ext_resource type="FontFile" uid="uid://c7a5sarchiryp" path="res://UI_ASSETS/UI КЛФИ Сфинкс/HondaC (1).ttf" id="7_ntnn5"]
 [ext_resource type="PackedScene" uid="uid://cxik2kyi7t48x" path="res://scenes/Elements/Filter.tscn" id="8_dhpen"]
-[ext_resource type="Script" path="res://scripts/redactor.gd" id="9_6gy1u"]
+[ext_resource type="Script" uid="uid://jk04qnoteecw" path="res://scripts/redactor.gd" id="9_6gy1u"]
 [ext_resource type="PackedScene" uid="uid://c6j2ojc5nqgkt" path="res://scenes/Ray.tscn" id="10_dujlr"]
 [ext_resource type="Texture2D" uid="uid://b2qfvp8sgk3bo" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/редактор.png" id="11_ehl3w"]
 [ext_resource type="Texture2D" uid="uid://cl7aejutgcpcr" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/пауза.png" id="12_vpk81"]
@@ -108,7 +108,7 @@ offset_top = -0.0300007
 offset_right = -25.0
 offset_bottom = 26.97
 grow_horizontal = 2
-text = "Mirror"
+text = "MIRROR"
 label_settings = SubResource("LabelSettings_s8j8v")
 horizontal_alignment = 1
 
@@ -151,7 +151,7 @@ offset_top = -0.0300007
 offset_right = -25.0
 offset_bottom = 26.97
 grow_horizontal = 2
-text = "Filter"
+text = "FILTER"
 label_settings = SubResource("LabelSettings_s8j8v")
 horizontal_alignment = 1
 

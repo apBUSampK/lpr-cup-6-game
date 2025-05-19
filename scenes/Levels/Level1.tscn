@@ -124,7 +124,7 @@ offset_top = -0.0300007
 offset_right = -25.0
 offset_bottom = 26.97
 grow_horizontal = 2
-text = "Mirror"
+text = "MIRROR"
 label_settings = SubResource("LabelSettings_s8j8v")
 horizontal_alignment = 1
 
