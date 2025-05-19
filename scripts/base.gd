@@ -3,7 +3,7 @@ extends Node2D
 @onready var game_scene := preload("res://scenes/Levels/Level1.tscn")
 
 var locale_en := false
-var level_number := 0
+var level_number := -1
 var game_inst : Node2D
 
 enum DIALOGUES {
@@ -33,6 +33,11 @@ func _on_menu_change_locale() -> void:
 	change_locale()
 
 func _on_menu_continue_game() -> void:
+	if level_number == -1 and FileAccess.file_exists("user://lprGame.save"):
+		var save_file = FileAccess.open("user://lprGame.save", FileAccess.READ)
+		level_number = save_file.get_32()
+		save_file.close()
+		print("loaded level number = ", level_number)
 	$MenuControl/Menu.hide()
 
 func _on_menu_new_game() -> void:
@@ -66,9 +71,18 @@ func _on_dialogue_dialogue_end(dialogue_number: int) -> void:
 			$MenuControl/Dialogue.UpdateDialogue(DIALOGUES.PracticeOnSimple)
 		DIALOGUES.PracticeOnSimple:
 			$MenuControl/Dialogue.hide()
+			level_number = 1
 			game_inst = game_scene.instantiate()
 			add_child(game_inst)
 			game_inst.next.connect(_load_next_scene)
+			game_inst.pause.connect(_pause)
+
+func _pause() -> void:
+	var save_file = FileAccess.open("user://lprGame.save", FileAccess.WRITE)
+	save_file.store_32(level_number)
+	save_file.close()
+	$MenuControl/Menu.show()
+	$MenuControl/Menu.enable_continue()
 
 # Switch to next game scene
 func _load_next_scene(next_scene: PackedScene) -> void:

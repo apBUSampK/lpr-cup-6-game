@@ -4,6 +4,7 @@ extends Node2D
 @export var next_scene : PackedScene
 
 signal next(next_scene : PackedScene)
+signal pause
 
 func _process(delta: float) -> void:
 	var solved := true
@@ -13,3 +14,10 @@ func _process(delta: float) -> void:
 			break
 	if solved:
 		emit_signal("next", next_scene)
+
+func _ready() -> void:
+	$Pause.connect("pressed", _on_pause_pressed)
+
+func _on_pause_pressed() -> void:
+	print("pause")
+	emit_signal("pause")

@@ -10,17 +10,11 @@
 script = ExtResource("1_t45w4")
 
 [node name="MenuControl" type="Control" parent="."]
+z_index = 1
 layout_mode = 3
 anchors_preset = 0
 offset_right = 60.0
 offset_bottom = 60.0
-
-[node name="Dialogue" parent="MenuControl" instance=ExtResource("2_40w10")]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 32.0
-anchor_bottom = 18.0
 
 [node name="Menu" parent="MenuControl" instance=ExtResource("2_h5ip5")]
 layout_mode = 1
@@ -35,13 +29,19 @@ anchors_preset = -1
 anchor_right = 32.033
 anchor_bottom = 17.954
 
+[node name="Dialogue" parent="MenuControl" instance=ExtResource("2_40w10")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 32.0
+anchor_bottom = 18.0
+
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_h5ip5")
 autoplay = true
 
-[connection signal="dialogue_end" from="MenuControl/Dialogue" to="." method="_on_dialogue_dialogue_end"]
 [connection signal="change_locale" from="MenuControl/Menu" to="." method="_on_menu_change_locale"]
 [connection signal="continue_game" from="MenuControl/Menu" to="." method="_on_menu_continue_game"]
 [connection signal="exit_game" from="MenuControl/Menu" to="." method="_on_menu_exit_game"]
@@ -51,3 +51,4 @@ autoplay = true
 [connection signal="change_locale" from="MenuControl/Options" to="." method="_on_options_change_locale"]
 [connection signal="music_lvl" from="MenuControl/Options" to="." method="_on_options_music_lvl"]
 [connection signal="sfx_lvl" from="MenuControl/Options" to="." method="_on_options_sfx_lvl"]
+[connection signal="dialogue_end" from="MenuControl/Dialogue" to="." method="_on_dialogue_dialogue_end"]
