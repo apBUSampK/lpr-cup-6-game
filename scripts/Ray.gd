@@ -37,12 +37,9 @@ func setup(red_p: int, green_p: int, blue_p: int, id: int, origin: Vector2, head
 	data.heading = heading
 	data.incidence = incidence
 	
-	var alpha = float(red_p**2 + green_p**2 + blue_p**2) / max_power**2 / 3
-	var max = max(red_p, green_p, blue_p)
-	line.default_color = Color(float(red_p) / max, float(green_p) / max, float(blue_p) / max, alpha)
-	
+	recolor()
 
 func recolor() -> void:
-	var alpha = float(data.red_p**2 + data.green_p**2 + data.blue_p**2) / max_power**2 / 3
+	var alpha = min(1., log(1 + 1.71828*(data.red_p**2 + data.green_p**2 + data.blue_p**2) / max_power**2 / 3))
 	var max = max(data.red_p, data.green_p, data.blue_p)
 	line.default_color = Color(float(data.red_p) / max, float(data.green_p) / max, float(data.blue_p) / max, alpha)

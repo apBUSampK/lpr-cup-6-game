@@ -2,26 +2,23 @@
 
 [ext_resource type="Script" uid="uid://f0c2hv5feerv" path="res://scripts/Level.gd" id="1_g28dl"]
 [ext_resource type="Texture2D" uid="uid://m27c1prg06as" path="res://UI_ASSETS/UI КЛФИ Сфинкс/фон.png" id="2_7dhlb"]
-[ext_resource type="Texture2D" uid="uid://2p6oerfjwue0" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/редактор1.png" id="3_ukhgg"]
+[ext_resource type="PackedScene" uid="uid://h6261dtwwgqw" path="res://scenes/Elements/Target.tscn" id="2_g28dl"]
 [ext_resource type="Texture2D" uid="uid://trhoq3bn8ard" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/элемент.png" id="4_c3dpg"]
 [ext_resource type="Script" uid="uid://wribtmr82mae" path="res://scripts/spawn.gd" id="5_hvvlp"]
 [ext_resource type="PackedScene" uid="uid://dig1njq2cft4x" path="res://scenes/Elements/Mirror.tscn" id="6_kdmjy"]
 [ext_resource type="FontFile" uid="uid://c7a5sarchiryp" path="res://UI_ASSETS/UI КЛФИ Сфинкс/HondaC (1).ttf" id="7_ntnn5"]
-[ext_resource type="PackedScene" uid="uid://cxik2kyi7t48x" path="res://scenes/Elements/Filter.tscn" id="8_dhpen"]
 [ext_resource type="Script" uid="uid://jk04qnoteecw" path="res://scripts/redactor.gd" id="9_6gy1u"]
-[ext_resource type="PackedScene" uid="uid://c6j2ojc5nqgkt" path="res://scenes/Ray.tscn" id="10_dujlr"]
+[ext_resource type="Texture2D" uid="uid://cy7emonypasi7" path="res://ELEMENT_ASSETS/стекло.png" id="9_7dhlb"]
 [ext_resource type="Texture2D" uid="uid://b2qfvp8sgk3bo" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/редактор.png" id="11_ehl3w"]
+[ext_resource type="PackedScene" uid="uid://dvr0333w10df3" path="res://scenes/Elements/Laser.tscn" id="12_g28dl"]
 [ext_resource type="Texture2D" uid="uid://cl7aejutgcpcr" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/пауза.png" id="12_vpk81"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s8j8v"]
-texture = ExtResource("3_ukhgg")
-
-[sub_resource type="LabelSettings" id="LabelSettings_asqj8"]
+[sub_resource type="LabelSettings" id="LabelSettings_ukhgg"]
 font = ExtResource("7_ntnn5")
 font_size = 30
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_s8j8v"]
+[sub_resource type="LabelSettings" id="LabelSettings_c3dpg"]
 font = ExtResource("7_ntnn5")
 font_size = 30
 font_color = Color(0, 0, 0, 1)
@@ -40,8 +37,26 @@ normal = Vector2(1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s8j8v"]
 normal = Vector2(-1, 0)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvvlp"]
+size = Vector2(40, 40)
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_g28dl")
+
+[node name="Target" parent="." instance=ExtResource("2_g28dl")]
+position = Vector2(1621, 245)
+target_r = 5
+target_g = 0
+target_b = 5
+redactable = false
+
+[node name="Laser" parent="." instance=ExtResource("12_g28dl")]
+position = Vector2(591, 537)
+rotation = 1.57145
+scale = Vector2(1, 1)
+r = 5
+g = 0
+b = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -2
@@ -58,17 +73,6 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_top = 9
-
-[node name="Delete Region" type="PanelContainer" parent="ScrollContainer/VBoxContainer/MarginContainer"]
-custom_minimum_size = Vector2(460, 165)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxTexture_s8j8v")
-
 [node name="Button" type="Button" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 action_mode = 0
@@ -76,7 +80,7 @@ icon = ExtResource("4_c3dpg")
 alignment = 0
 script = ExtResource("5_hvvlp")
 element_sc = ExtResource("6_kdmjy")
-count = 2
+count = 7
 
 [node name="Count_Label" type="Label" parent="ScrollContainer/VBoxContainer/Button"]
 layout_mode = 1
@@ -91,7 +95,7 @@ offset_right = 0.0799866
 offset_bottom = -0.0120087
 grow_vertical = 2
 text = "x3"
-label_settings = SubResource("LabelSettings_asqj8")
+label_settings = SubResource("LabelSettings_ukhgg")
 horizontal_alignment = 2
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -109,51 +113,13 @@ offset_right = -25.0
 offset_bottom = 26.97
 grow_horizontal = 2
 text = "MIRROR"
-label_settings = SubResource("LabelSettings_s8j8v")
+label_settings = SubResource("LabelSettings_c3dpg")
 horizontal_alignment = 1
 
-[node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-action_mode = 0
-icon = ExtResource("4_c3dpg")
-script = ExtResource("5_hvvlp")
-element_sc = ExtResource("8_dhpen")
-count = 2
-
-[node name="Count_Label" type="Label" parent="ScrollContainer/VBoxContainer/Button2"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.795
-anchor_top = 0.607
-anchor_right = 0.94
-anchor_bottom = 0.844
-offset_left = -0.0599976
-offset_top = -0.0110016
-offset_right = 0.0799866
-offset_bottom = -0.0120087
-grow_vertical = 2
-text = "x3"
-label_settings = SubResource("LabelSettings_asqj8")
-horizontal_alignment = 2
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Button2"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.331
-anchor_top = 0.11
-anchor_right = 1.0
-anchor_bottom = 0.11
-offset_left = 0.09198
-offset_top = -0.0300007
-offset_right = -25.0
-offset_bottom = 26.97
-grow_horizontal = 2
-text = "FILTER"
-label_settings = SubResource("LabelSettings_s8j8v")
-horizontal_alignment = 1
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Button"]
+position = Vector2(85, 86)
+scale = Vector2(0.0999377, 0.0999377)
+texture = ExtResource("9_7dhlb")
 
 [node name="Redactor" type="Area2D" parent="."]
 z_index = 1
@@ -164,10 +130,6 @@ script = ExtResource("9_6gy1u")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Redactor"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_klq1y")
-
-[node name="RayCast2D" parent="." instance=ExtResource("10_dujlr")]
-position = Vector2(795, 112)
-rotation = -0.713042
 
 [node name="Box" type="StaticBody2D" parent="."]
 position = Vector2(1210, 540)
@@ -199,3 +161,60 @@ offset_top = 22.0
 offset_right = 1902.0
 offset_bottom = 99.0
 icon = ExtResource("12_vpk81")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(802, 373)
+scale = Vector2(0.44, 18.65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_hvvlp")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1049, 709)
+scale = Vector2(0.44, 18.65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_hvvlp")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(1049, 72)
+scale = Vector2(0.44, 8.13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_hvvlp")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D3"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(1336, 246)
+rotation = -0.818102
+scale = Vector2(0.44, 28.17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("RectangleShape2D_hvvlp")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D4"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)

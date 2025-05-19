@@ -1,25 +1,21 @@
-[gd_scene load_steps=26 format=3 uid="uid://b7vhfjrbyr5pc"]
+[gd_scene load_steps=24 format=3 uid="uid://b7vhfjrbyr5pc"]
 
 [ext_resource type="Script" uid="uid://f0c2hv5feerv" path="res://scripts/Level.gd" id="1_nu2g1"]
 [ext_resource type="Texture2D" uid="uid://m27c1prg06as" path="res://UI_ASSETS/UI КЛФИ Сфинкс/фон.png" id="2_5mhgh"]
 [ext_resource type="PackedScene" uid="uid://8s3rkilsyxp8" path="res://scenes/Levels/Level2.tscn" id="2_dfih8"]
-[ext_resource type="Texture2D" uid="uid://2p6oerfjwue0" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/редактор1.png" id="3_dfih8"]
 [ext_resource type="Texture2D" uid="uid://trhoq3bn8ard" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/элемент.png" id="4_n31k3"]
 [ext_resource type="Script" uid="uid://wribtmr82mae" path="res://scripts/spawn.gd" id="5_jng41"]
 [ext_resource type="PackedScene" uid="uid://dig1njq2cft4x" path="res://scenes/Elements/Mirror.tscn" id="6_yclo3"]
 [ext_resource type="FontFile" uid="uid://c7a5sarchiryp" path="res://UI_ASSETS/UI КЛФИ Сфинкс/HondaC (1).ttf" id="7_84hcr"]
+[ext_resource type="Texture2D" uid="uid://cy7emonypasi7" path="res://ELEMENT_ASSETS/стекло.png" id="9_jng41"]
 [ext_resource type="Script" uid="uid://jk04qnoteecw" path="res://scripts/redactor.gd" id="9_tf0rn"]
 [ext_resource type="Texture2D" uid="uid://b2qfvp8sgk3bo" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/редактор.png" id="11_7886b"]
 [ext_resource type="Texture2D" uid="uid://cl7aejutgcpcr" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/пауза.png" id="12_sfku4"]
 [ext_resource type="PackedScene" uid="uid://h6261dtwwgqw" path="res://scenes/Elements/Target.tscn" id="13_5mhgh"]
 [ext_resource type="PackedScene" uid="uid://dvr0333w10df3" path="res://scenes/Elements/Laser.tscn" id="13_dfih8"]
 [ext_resource type="Texture2D" uid="uid://ddgqkkegti6jb" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/редактор2.png" id="14_dfih8"]
-[ext_resource type="Theme" uid="uid://c45ps7vv7tsn4" path="res://scenes/UItheme.tres" id="14_jng41"]
 [ext_resource type="Script" uid="uid://s21h5ud2cxoh" path="res://scripts/tutorial_1.gd" id="15_n31k3"]
 [ext_resource type="LabelSettings" uid="uid://ddud0lt005syb" path="res://resources/text_small.tres" id="16_jng41"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s8j8v"]
-texture = ExtResource("3_dfih8")
 
 [sub_resource type="LabelSettings" id="LabelSettings_asqj8"]
 font = ExtResource("7_84hcr")
@@ -52,9 +48,18 @@ metadata/_edit_vertical_guides_ = [960.0]
 metadata/_edit_horizontal_guides_ = [540.0]
 
 [node name="Target" parent="." instance=ExtResource("13_5mhgh")]
-position = Vector2(1494, 911)
-rotation = -2.58011
+position = Vector2(721, 613)
+rotation = -3.14031
+target_r = 5
+target_g = 5
+target_b = 5
 redactable = false
+
+[node name="Laser" parent="." instance=ExtResource("13_dfih8")]
+position = Vector2(721, 542)
+r = 5
+g = 5
+b = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -2
@@ -71,17 +76,6 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_top = 9
-
-[node name="Delete Region" type="PanelContainer" parent="ScrollContainer/VBoxContainer/MarginContainer"]
-custom_minimum_size = Vector2(460, 165)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxTexture_s8j8v")
-
 [node name="Button" type="Button" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 action_mode = 0
@@ -89,7 +83,7 @@ icon = ExtResource("4_n31k3")
 alignment = 0
 script = ExtResource("5_jng41")
 element_sc = ExtResource("6_yclo3")
-count = 2
+count = 3
 
 [node name="Count_Label" type="Label" parent="ScrollContainer/VBoxContainer/Button"]
 layout_mode = 1
@@ -124,6 +118,11 @@ grow_horizontal = 2
 text = "MIRROR"
 label_settings = SubResource("LabelSettings_s8j8v")
 horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Button"]
+position = Vector2(85, 86)
+scale = Vector2(0.0999377, 0.0999377)
+texture = ExtResource("9_jng41")
 
 [node name="Redactor" type="Area2D" parent="."]
 z_index = 1
@@ -166,20 +165,14 @@ offset_right = 1902.0
 offset_bottom = 99.0
 icon = ExtResource("12_sfku4")
 
-[node name="Laser" parent="." instance=ExtResource("13_dfih8")]
-position = Vector2(1124, 654)
-r = 5
-g = 0
-b = 0
-
 [node name="tutorial_1" type="TextureRect" parent="."]
+visible = false
 z_index = 4
 offset_left = 730.0
 offset_top = 375.0
 offset_right = 1190.0
 offset_bottom = 696.0
 pivot_offset = Vector2(230, 165)
-theme = ExtResource("14_jng41")
 texture = ExtResource("14_dfih8")
 script = ExtResource("15_n31k3")
 
@@ -192,10 +185,7 @@ offset_top = 19.0
 offset_right = 438.0
 offset_bottom = -19.0
 text = "TUT1"
-label_settings = SubResource("LabelSettings_n31k3")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
+label_settings = ExtResource("16_jng41")
 
 [node name="ColorRect" type="ColorRect" parent="tutorial_1"]
 z_index = -1
@@ -205,3 +195,18 @@ offset_top = -515.0
 offset_right = 1554.0
 offset_bottom = 823.0
 color = Color(0, 0, 0, 0.407843)
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(-159.271, 2103.79)
+rotation = -1.59502
+points = PackedVector2Array(1283.62, 930.634, 1417.66, 930.88)
+
+[node name="Line2D2" type="Line2D" parent="."]
+position = Vector2(-157.271, 2086.79)
+rotation = -1.59502
+points = PackedVector2Array(1382, 909, 1413, 928)
+
+[node name="Line2D3" type="Line2D" parent="."]
+position = Vector2(-157.271, 2086.79)
+rotation = -1.59502
+points = PackedVector2Array(1384, 948, 1413, 928)

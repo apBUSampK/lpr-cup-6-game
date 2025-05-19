@@ -1,0 +1,277 @@
+[gd_scene load_steps=27 format=3 uid="uid://iasqv0qhks4w"]
+
+[ext_resource type="Script" uid="uid://f0c2hv5feerv" path="res://scripts/Level.gd" id="1_f6l0j"]
+[ext_resource type="PackedScene" uid="uid://h6261dtwwgqw" path="res://scenes/Elements/Target.tscn" id="2_s61ou"]
+[ext_resource type="PackedScene" uid="uid://dvr0333w10df3" path="res://scenes/Elements/Laser.tscn" id="3_q33eu"]
+[ext_resource type="Texture2D" uid="uid://m27c1prg06as" path="res://UI_ASSETS/UI КЛФИ Сфинкс/фон.png" id="4_m1b0d"]
+[ext_resource type="PackedScene" uid="uid://cxik2kyi7t48x" path="res://scenes/Elements/Filter.tscn" id="4_s61ou"]
+[ext_resource type="Texture2D" uid="uid://trhoq3bn8ard" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/элемент.png" id="5_3ivf4"]
+[ext_resource type="Script" uid="uid://wribtmr82mae" path="res://scripts/spawn.gd" id="6_3sq67"]
+[ext_resource type="FontFile" uid="uid://c7a5sarchiryp" path="res://UI_ASSETS/UI КЛФИ Сфинкс/HondaC (1).ttf" id="8_2wvu5"]
+[ext_resource type="PackedScene" uid="uid://dig1njq2cft4x" path="res://scenes/Elements/Mirror.tscn" id="8_m1b0d"]
+[ext_resource type="Texture2D" uid="uid://d3qgoh84ylhjo" path="res://ELEMENT_ASSETS/фильтр.png" id="9_h8vgy"]
+[ext_resource type="Texture2D" uid="uid://cy7emonypasi7" path="res://ELEMENT_ASSETS/стекло.png" id="10_3ivf4"]
+[ext_resource type="PackedScene" uid="uid://r1lnc4x5w448" path="res://scenes/Elements/Filters/B3.tscn" id="11_3sq67"]
+[ext_resource type="Script" uid="uid://jk04qnoteecw" path="res://scripts/redactor.gd" id="12_kifv3"]
+[ext_resource type="Texture2D" uid="uid://b2qfvp8sgk3bo" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/редактор.png" id="13_1cwj7"]
+[ext_resource type="PackedScene" uid="uid://dxadk14nat881" path="res://scenes/Elements/Amps/R2.tscn" id="13_6pssb"]
+[ext_resource type="Texture2D" uid="uid://cl7aejutgcpcr" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/пауза.png" id="14_2b15u"]
+[ext_resource type="Texture2D" uid="uid://dxiffsyp2imrg" path="res://ELEMENT_ASSETS/усилитель.png" id="14_2wvu5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h8vgy"]
+font = ExtResource("8_2wvu5")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_okxe8"]
+font = ExtResource("8_2wvu5")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ukhgg"]
+font = ExtResource("8_2wvu5")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c3dpg"]
+font = ExtResource("8_2wvu5")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klq1y"]
+size = Vector2(499, 1080)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_knsn4"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dkdbp"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_asqj8"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s8j8v"]
+normal = Vector2(-1, 0)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_f6l0j")
+
+[node name="Target" parent="." instance=ExtResource("2_s61ou")]
+position = Vector2(1650, 521)
+rotation = -1.57089
+target_r = 5
+target_g = 0
+target_b = 0
+redactable = false
+
+[node name="Laser" parent="." instance=ExtResource("3_q33eu")]
+position = Vector2(591, 537)
+rotation = 1.57145
+g = 0
+
+[node name="Filter" parent="." instance=ExtResource("4_s61ou")]
+position = Vector2(775, 537)
+rotation = 1.5708
+red_power = 5
+green_power = 0
+blue_power = 0
+redactable = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("4_m1b0d")
+offset = Vector2(960, 540)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_right = 498.0
+offset_bottom = 1080.0
+size_flags_horizontal = 4
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("5_3ivf4")
+alignment = 0
+script = ExtResource("6_3sq67")
+element_sc = ExtResource("8_m1b0d")
+count = 4
+
+[node name="Count_Label" type="Label" parent="ScrollContainer/VBoxContainer/Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.795
+anchor_top = 0.607
+anchor_right = 0.94
+anchor_bottom = 0.844
+offset_left = -0.0599976
+offset_top = -0.0110016
+offset_right = 0.0799866
+offset_bottom = -0.0120087
+grow_vertical = 2
+text = "x3"
+label_settings = SubResource("LabelSettings_h8vgy")
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.331
+anchor_top = 0.11
+anchor_right = 1.0
+anchor_bottom = 0.11
+offset_left = 0.09198
+offset_top = -0.0300007
+offset_right = -25.0
+offset_bottom = 26.97
+grow_horizontal = 2
+text = "MIRROR"
+label_settings = SubResource("LabelSettings_okxe8")
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Button"]
+position = Vector2(85, 86)
+scale = Vector2(0.0999377, 0.0999377)
+texture = ExtResource("10_3ivf4")
+
+[node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("5_3ivf4")
+alignment = 0
+script = ExtResource("6_3sq67")
+element_sc = ExtResource("11_3sq67")
+count = 1
+
+[node name="Count_Label" type="Label" parent="ScrollContainer/VBoxContainer/Button2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.795
+anchor_top = 0.607
+anchor_right = 0.94
+anchor_bottom = 0.844
+offset_left = -0.0599976
+offset_top = -0.0110016
+offset_right = 0.0799866
+offset_bottom = -0.0120087
+grow_vertical = 2
+text = "x3"
+label_settings = SubResource("LabelSettings_ukhgg")
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Button2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.331
+anchor_top = 0.11
+anchor_right = 1.0
+anchor_bottom = 0.11
+offset_left = 0.09198
+offset_top = -0.0300007
+offset_right = -25.0
+offset_bottom = 26.97
+grow_horizontal = 2
+text = "FILTER"
+label_settings = SubResource("LabelSettings_c3dpg")
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Button2"]
+position = Vector2(85, 86)
+scale = Vector2(0.0999377, 0.0999377)
+texture = ExtResource("9_h8vgy")
+
+[node name="Button3" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("5_3ivf4")
+alignment = 0
+script = ExtResource("6_3sq67")
+element_sc = ExtResource("13_6pssb")
+count = 1
+
+[node name="Count_Label" type="Label" parent="ScrollContainer/VBoxContainer/Button3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.795
+anchor_top = 0.607
+anchor_right = 0.94
+anchor_bottom = 0.844
+offset_left = -0.0599976
+offset_top = -0.0110016
+offset_right = 0.0799866
+offset_bottom = -0.0120087
+grow_vertical = 2
+text = "x3"
+label_settings = SubResource("LabelSettings_ukhgg")
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Button3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.331
+anchor_top = 0.11
+anchor_right = 1.0
+anchor_bottom = 0.11
+offset_left = 0.09198
+offset_top = -0.0300007
+offset_right = -25.0
+offset_bottom = 26.97
+grow_horizontal = 2
+text = "AMPLIFIER"
+label_settings = SubResource("LabelSettings_c3dpg")
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Button3"]
+position = Vector2(86.2892, 87)
+scale = Vector2(0.147692, 0.147692)
+texture = ExtResource("14_2wvu5")
+
+[node name="Redactor" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(250, 540)
+collision_layer = 3
+script = ExtResource("12_kifv3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Redactor"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_klq1y")
+
+[node name="Box" type="StaticBody2D" parent="."]
+position = Vector2(1210, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
+position = Vector2(0, 540)
+shape = SubResource("WorldBoundaryShape2D_knsn4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Box"]
+position = Vector2(0, -540)
+shape = SubResource("WorldBoundaryShape2D_dkdbp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Box"]
+position = Vector2(-710, 0)
+shape = SubResource("WorldBoundaryShape2D_asqj8")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Box"]
+position = Vector2(710, 0)
+shape = SubResource("WorldBoundaryShape2D_s8j8v")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("13_1cwj7")
+offset = Vector2(302, 540)
+
+[node name="Pause" type="Button" parent="."]
+offset_left = 1813.0
+offset_top = 22.0
+offset_right = 1902.0
+offset_bottom = 99.0
+icon = ExtResource("14_2b15u")
