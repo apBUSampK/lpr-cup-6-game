@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6f0cvrdw0fi"]
+
+[ext_resource type="Theme" uid="uid://c45ps7vv7tsn4" path="res://scenes/UItheme.tres" id="1_3n4vj"]
+[ext_resource type="Texture2D" uid="uid://m27c1prg06as" path="res://UI_ASSETS/UI КЛФИ Сфинкс/фон.png" id="2_3n4vj"]
+[ext_resource type="Script" uid="uid://dpqpxquor2sfq" path="res://scripts/dialogue.gd" id="2_led2e"]
+[ext_resource type="Texture2D" uid="uid://cckkvrpmcfa1t" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Sphinx.PNG" id="3_fyky8"]
+[ext_resource type="Texture2D" uid="uid://ufbit0o8hvnq" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Диалоговое окно/диалог.png" id="4_led2e"]
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_3n4vj")
+script = ExtResource("2_led2e")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3n4vj")
+expand_mode = 1
+
+[node name="Sphinx" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 776.0
+offset_top = 40.0
+offset_right = -3.0
+offset_bottom = -243.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_fyky8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Dialogue" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.664
+anchor_right = 0.87
+anchor_bottom = 0.96
+offset_left = 17.0
+offset_top = -24.08
+offset_right = 0.399902
+offset_bottom = -0.200012
+texture = ExtResource("4_led2e")
+expand_mode = 1
+
+[node name="Text" type="Label" parent="Dialogue"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.133
+anchor_top = 0.169
+anchor_right = 0.924
+anchor_bottom = 0.779
+offset_left = 0.098999
+offset_top = -0.0530052
+offset_right = 3.37195
+offset_bottom = 18.377
+theme_override_font_sizes/font_size = 32
+text = "DIALOGUE_1"
+autowrap_mode = 3
+max_lines_visible = 3

@@ -1,0 +1,215 @@
+[gd_scene load_steps=13 format=3 uid="uid://cmm03coandjgf"]
+
+[ext_resource type="Theme" uid="uid://c45ps7vv7tsn4" path="res://scenes/UItheme.tres" id="1_h1wq0"]
+[ext_resource type="Script" uid="uid://cqac0jqfluopa" path="res://scripts/menu.gd" id="2_dwrpx"]
+[ext_resource type="Texture2D" uid="uid://m27c1prg06as" path="res://UI_ASSETS/UI КЛФИ Сфинкс/фон.png" id="3_g7jxm"]
+[ext_resource type="Texture2D" uid="uid://cx6bxsdyx5sqa" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Главное меню/кнопка.png" id="4_jspdm"]
+[ext_resource type="Texture2D" uid="uid://ccty0li2hh7wg" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Главное меню/кнопка не активная.png" id="5_oxnod"]
+[ext_resource type="Texture2D" uid="uid://cb1ebjofv0c8o" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Главное меню/ru.png" id="6_gd0jp"]
+[ext_resource type="Texture2D" uid="uid://b1ycq4jdw4gk0" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Главное меню/колонна.png" id="7_4ndjb"]
+[ext_resource type="Texture2D" uid="uid://2s7aswmh7u7d" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Главное меню/колонна2.png" id="8_3ls4m"]
+[ext_resource type="Texture2D" uid="uid://dmkotai5sm452" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Главное меню/верх.png" id="9_5h80m"]
+[ext_resource type="Texture2D" uid="uid://dpqwn4iok2qjd" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Главное меню/низ.png" id="10_w25hu"]
+[ext_resource type="Texture2D" uid="uid://cckkvrpmcfa1t" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Sphinx.PNG" id="11_td6mg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ytvr"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_h1wq0")
+script = ExtResource("2_dwrpx")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_g7jxm")
+expand_mode = 2
+
+[node name="MenuButtons" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.518
+anchor_top = 0.28
+anchor_right = 0.771
+anchor_bottom = 0.807
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4ytvr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuButtons"]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="Continue" type="TextureButton" parent="MenuButtons/VBoxContainer"]
+custom_minimum_size = Vector2(0, 81.935)
+layout_mode = 2
+texture_normal = ExtResource("4_jspdm")
+texture_pressed = ExtResource("4_jspdm")
+texture_hover = ExtResource("4_jspdm")
+texture_disabled = ExtResource("5_oxnod")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MenuButtons/VBoxContainer/Continue"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.096
+anchor_top = 0.195
+anchor_right = 0.901
+anchor_bottom = 0.915
+offset_left = -0.00799942
+offset_top = 0.0226746
+offset_right = -0.0230103
+offset_bottom = 0.0294724
+text = "CONT"
+horizontal_alignment = 1
+
+[node name="New Game" type="TextureButton" parent="MenuButtons/VBoxContainer"]
+custom_minimum_size = Vector2(0, 81.935)
+layout_mode = 2
+texture_normal = ExtResource("4_jspdm")
+texture_pressed = ExtResource("4_jspdm")
+texture_hover = ExtResource("4_jspdm")
+texture_disabled = ExtResource("5_oxnod")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MenuButtons/VBoxContainer/New Game"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.096
+anchor_top = 0.195
+anchor_right = 0.901
+anchor_bottom = 0.915
+text = "NEW"
+horizontal_alignment = 1
+
+[node name="Options" type="TextureButton" parent="MenuButtons/VBoxContainer"]
+custom_minimum_size = Vector2(0, 81.935)
+layout_mode = 2
+texture_normal = ExtResource("4_jspdm")
+texture_pressed = ExtResource("4_jspdm")
+texture_hover = ExtResource("4_jspdm")
+texture_disabled = ExtResource("5_oxnod")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MenuButtons/VBoxContainer/Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.096
+anchor_top = 0.195
+anchor_right = 0.901
+anchor_bottom = 0.915
+text = "OPT"
+horizontal_alignment = 1
+
+[node name="Exit" type="TextureButton" parent="MenuButtons/VBoxContainer"]
+custom_minimum_size = Vector2(0, 81.935)
+layout_mode = 2
+texture_normal = ExtResource("4_jspdm")
+texture_pressed = ExtResource("4_jspdm")
+texture_hover = ExtResource("4_jspdm")
+texture_disabled = ExtResource("5_oxnod")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MenuButtons/VBoxContainer/Exit"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.096
+anchor_top = 0.195
+anchor_right = 0.901
+anchor_bottom = 0.915
+text = "EXIT"
+horizontal_alignment = 1
+
+[node name="ChangeLocale" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.799
+anchor_top = 0.039
+anchor_right = 0.871
+anchor_bottom = 0.187
+offset_left = 0.279968
+offset_top = -0.0799999
+offset_right = 0.119873
+offset_bottom = 0.360001
+texture_normal = ExtResource("6_gd0jp")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ColumnLeft" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.12
+anchor_bottom = 1.0
+offset_right = -0.440002
+texture = ExtResource("7_4ndjb")
+expand_mode = 1
+
+[node name="ColumnRight" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.88
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("8_3ls4m")
+expand_mode = 1
+
+[node name="MenuTop" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.118
+anchor_right = 0.78
+anchor_bottom = 0.247
+offset_top = 0.0399933
+offset_bottom = 0.159988
+texture = ExtResource("9_5h80m")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MenuBottom" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.504
+anchor_top = 0.824
+anchor_right = 0.784
+anchor_bottom = 0.953
+offset_left = -0.119995
+offset_top = -0.280029
+offset_right = -0.119995
+offset_bottom = -0.160034
+texture = ExtResource("10_w25hu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Sphinx" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.174
+anchor_top = 0.25
+anchor_right = 0.422
+anchor_bottom = 0.781
+offset_left = 0.279984
+offset_right = -0.160034
+offset_bottom = -0.320007
+texture = ExtResource("11_td6mg")
+expand_mode = 1
+stretch_mode = 4
+
+[connection signal="pressed" from="MenuButtons/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="MenuButtons/VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="MenuButtons/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MenuButtons/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="ChangeLocale" to="." method="_on_change_locale_pressed"]

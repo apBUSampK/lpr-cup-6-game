@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bx4t1srnns5ig"]
+
+[ext_resource type="Script" uid="uid://giy5usc82srp" path="res://scripts/Elements/disperser.gd" id="1_omh4h"]
+[ext_resource type="Texture2D" uid="uid://b8vhtmhn2osxn" path="res://ELEMENT_ASSETS/диф решетка.png" id="2_gtx4e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2e37k"]
+radius = 13.0
+height = 200.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_omh4h"]
+size = Vector2(200, 120)
+
+[node name="Disperser" type="StaticBody2D"]
+script = ExtResource("1_omh4h")
+metadata/_edit_vertical_guides_ = [-50.0, 50.0]
+
+[node name="ДифРешетка" type="Sprite2D" parent="."]
+position = Vector2(5.96046e-06, 1.43051e-06)
+scale = Vector2(0.0789785, 0.0789785)
+texture = ExtResource("2_gtx4e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.55271e-15, 1)
+rotation = 1.5708
+scale = Vector2(0.497701, 0.497701)
+shape = SubResource("CapsuleShape2D_2e37k")
+
+[node name="Exclusion" type="Area2D" parent="."]
+scale = Vector2(0.497701, 0.497701)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exclusion"]
+shape = SubResource("RectangleShape2D_omh4h")
+
+[node name="Excluder" type="ColorRect" parent="Exclusion"]
+visible = false
+z_index = 1
+offset_left = -100.0
+offset_top = -60.0
+offset_right = 100.0
+offset_bottom = 60.0
+color = Color(1, 0, 0, 0.501961)

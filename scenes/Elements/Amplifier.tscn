@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://capgiv4buvans"]
+
+[ext_resource type="Script" uid="uid://k4khmastxaej" path="res://scripts/Elements/amplifier.gd" id="1_pmsli"]
+[ext_resource type="Texture2D" uid="uid://eyd6gv8tw142" path="res://ELEMENT_ASSETS/усилитель2.png" id="2_x3hvj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqld0"]
+size = Vector2(120, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nf2fq"]
+size = Vector2(204, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfnsf"]
+size = Vector2(8, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fqy8"]
+size = Vector2(9, 177)
+
+[node name="Amplifier" type="StaticBody2D"]
+script = ExtResource("1_pmsli")
+metadata/_edit_vertical_guides_ = [-50.0, 50.0]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.480273, 0.480273)
+shape = SubResource("RectangleShape2D_dqld0")
+
+[node name="Exclusion" type="Area2D" parent="."]
+scale = Vector2(0.480273, 0.480273)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exclusion"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_nf2fq")
+
+[node name="Excluder" type="ColorRect" parent="Exclusion"]
+visible = false
+offset_left = -103.0
+offset_top = -113.0
+offset_right = 101.0
+offset_bottom = 112.0
+color = Color(1, 0, 0, 0.501961)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.999996, 1.90735e-06)
+scale = Vector2(0.116361, 0.114649)
+texture = ExtResource("2_x3hvj")
+region_rect = Rect2(-120, -120, 240, 240)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(0.480273, 0.480273)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-56, -4)
+shape = SubResource("RectangleShape2D_hfnsf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(55.5, -4.5)
+shape = SubResource("RectangleShape2D_2fqy8")

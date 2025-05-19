@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6j2ojc5nqgkt"]
+
+[ext_resource type="Script" uid="uid://ddqxlrf7edxx5" path="res://Scripts/Ray.gd" id="1_j1m5c"]
+
+[node name="RayCast2D" type="RayCast2D"]
+target_position = Vector2(0, 2000)
+script = ExtResource("1_j1m5c")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 300)

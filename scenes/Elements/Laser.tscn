@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvr0333w10df3"]
+
+[ext_resource type="Texture2D" uid="uid://bl8f8hbk7avq8" path="res://ELEMENT_ASSETS/лазер2.png" id="1_bbqje"]
+[ext_resource type="Script" uid="uid://c26x2twetqa5s" path="res://scripts/laser.gd" id="1_qfbck"]
+[ext_resource type="PackedScene" uid="uid://c6j2ojc5nqgkt" path="res://scenes/Ray.tscn" id="1_qv7ig"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqld0"]
+size = Vector2(200, 220)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_js6ei"]
+size = Vector2(200, 220)
+
+[node name="Laser" type="StaticBody2D"]
+script = ExtResource("1_qfbck")
+metadata/_edit_vertical_guides_ = [-50.0, 50.0]
+
+[node name="RayCast2D" parent="." instance=ExtResource("1_qv7ig")]
+position = Vector2(0, -55)
+rotation = 3.14159
+
+[node name="Лазер2" type="Sprite2D" parent="."]
+position = Vector2(3, 0)
+scale = Vector2(0.138505, 0.138505)
+texture = ExtResource("1_bbqje")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.497394, 0.497394)
+shape = SubResource("RectangleShape2D_dqld0")
+
+[node name="Exclusion" type="Area2D" parent="."]
+scale = Vector2(0.497394, 0.497394)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exclusion"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_js6ei")
+
+[node name="Excluder" type="ColorRect" parent="Exclusion"]
+visible = false
+z_index = 1
+offset_left = -100.0
+offset_top = -111.0
+offset_right = 100.0
+offset_bottom = 109.0
+color = Color(1, 0, 0, 0.501961)

@@ -1,0 +1,197 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4b0ojpx3neuj"]
+
+[ext_resource type="Theme" uid="uid://c45ps7vv7tsn4" path="res://scenes/UItheme.tres" id="1_w5qgn"]
+[ext_resource type="Script" uid="uid://ptuubh6cqngi" path="res://scripts/options.gd" id="2_vmi34"]
+[ext_resource type="Texture2D" uid="uid://m27c1prg06as" path="res://UI_ASSETS/UI КЛФИ Сфинкс/фон.png" id="3_o5iem"]
+[ext_resource type="Texture2D" uid="uid://cuuk55pmlfn1w" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Настройки/заголовок.png" id="4_qnkuw"]
+[ext_resource type="Texture2D" uid="uid://cb1ebjofv0c8o" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Главное меню/ru.png" id="5_51314"]
+[ext_resource type="Texture2D" uid="uid://t61c032yjr6p" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Настройки/плашка.png" id="6_wq7h2"]
+[ext_resource type="Texture2D" uid="uid://j6j0k8s7veml" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Настройки/ползунок.png" id="7_8bfjn"]
+[ext_resource type="Texture2D" uid="uid://cx6bxsdyx5sqa" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Главное меню/кнопка.png" id="8_b5xj6"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_w5qgn")
+script = ExtResource("2_vmi34")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_o5iem")
+expand_mode = 2
+
+[node name="Header" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.323
+anchor_top = 0.037
+anchor_right = 0.69
+anchor_bottom = 0.19
+offset_left = -0.440002
+offset_top = 0.360001
+offset_right = -0.200073
+offset_bottom = 0.199997
+texture = ExtResource("4_qnkuw")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Header"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.313
+anchor_top = 0.264
+anchor_right = 0.662
+anchor_bottom = 0.7
+offset_left = -0.110016
+offset_top = -0.039999
+offset_right = -0.140015
+offset_bottom = 0.999992
+text = "OPT"
+horizontal_alignment = 1
+
+[node name="ChangeLocale" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.838
+anchor_top = 0.06
+anchor_right = 0.91
+anchor_bottom = 0.181
+offset_left = 0.359863
+offset_top = -0.200001
+offset_right = 0.199951
+offset_bottom = -0.320007
+texture_normal = ExtResource("5_51314")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MusicLbl" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.312
+anchor_top = 0.267
+anchor_right = 0.419
+anchor_bottom = 0.344
+offset_left = 0.639984
+offset_top = -0.240021
+offset_right = -0.320068
+offset_bottom = 0.319992
+text = "MUS"
+
+[node name="MusicBg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.307
+anchor_top = 0.356
+anchor_right = 0.7
+anchor_bottom = 0.457
+offset_left = 0.039978
+offset_top = -0.320007
+offset_right = -6.10352e-05
+offset_bottom = -0.0400085
+texture = ExtResource("6_wq7h2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Music" type="HSlider" parent="."]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+anchor_left = 0.331
+anchor_top = 0.35
+anchor_right = 0.678
+anchor_bottom = 0.46
+offset_left = 0.319946
+offset_top = -1.52588e-05
+offset_right = 111.16
+offset_bottom = 19.8
+scale = Vector2(0.8, 0.8)
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("7_8bfjn")
+theme_override_icons/grabber_highlight = ExtResource("7_8bfjn")
+max_value = 8.0
+
+[node name="SFXLbl" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.312
+anchor_top = 0.489
+anchor_right = 0.419
+anchor_bottom = 0.567
+offset_left = 0.639984
+offset_top = -0.0800171
+offset_right = -0.320068
+offset_bottom = -0.240021
+text = "SOUND"
+
+[node name="SFXbg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.307
+anchor_top = 0.568
+anchor_right = 0.7
+anchor_bottom = 0.669
+offset_left = -0.960022
+offset_top = -0.960022
+offset_right = -1.00006
+offset_bottom = -0.680023
+texture = ExtResource("6_wq7h2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SFX" type="HSlider" parent="."]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+offset_left = 423.0
+offset_top = 404.0
+offset_right = 979.0
+offset_bottom = 503.0
+scale = Vector2(0.8, 0.8)
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("7_8bfjn")
+theme_override_icons/grabber_highlight = ExtResource("7_8bfjn")
+max_value = 8.0
+
+[node name="Return" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.354
+anchor_top = 0.825
+anchor_right = 0.626
+anchor_bottom = 0.944
+offset_left = -0.119995
+offset_top = -6.10352e-05
+offset_right = -0.280029
+offset_bottom = 0.319946
+texture_normal = ExtResource("8_b5xj6")
+texture_pressed = ExtResource("8_b5xj6")
+texture_hover = ExtResource("8_b5xj6")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Return"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.032
+anchor_top = 0.07
+anchor_right = 0.951
+anchor_bottom = 0.849
+offset_left = -0.136001
+offset_top = -0.02
+offset_right = 0.052002
+offset_bottom = 4.986
+text = "RET"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="ChangeLocale" to="." method="_on_change_locale_pressed"]
+[connection signal="drag_ended" from="Music" to="." method="_on_music_drag_ended"]
+[connection signal="drag_ended" from="SFX" to="." method="_on_sfx_drag_ended"]
+[connection signal="pressed" from="Return" to="." method="_on_return_pressed"]

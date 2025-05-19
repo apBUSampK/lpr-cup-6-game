@@ -1,0 +1,201 @@
+[gd_scene load_steps=21 format=3 uid="uid://drv0vdyb7q2p1"]
+
+[ext_resource type="Texture2D" uid="uid://m27c1prg06as" path="res://UI_ASSETS/UI КЛФИ Сфинкс/фон.png" id="1_8bx8w"]
+[ext_resource type="Script" uid="uid://wribtmr82mae" path="res://scripts/spawn.gd" id="1_l7snq"]
+[ext_resource type="Script" uid="uid://f0c2hv5feerv" path="res://scripts/Level.gd" id="1_pc2xc"]
+[ext_resource type="Texture2D" uid="uid://trhoq3bn8ard" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/элемент.png" id="2_17ns2"]
+[ext_resource type="Texture2D" uid="uid://2p6oerfjwue0" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/редактор1.png" id="2_asqj8"]
+[ext_resource type="PackedScene" uid="uid://dig1njq2cft4x" path="res://scenes/Elements/Mirror.tscn" id="2_uuh5w"]
+[ext_resource type="Script" uid="uid://jk04qnoteecw" path="res://scripts/redactor.gd" id="3_pdpxc"]
+[ext_resource type="Texture2D" uid="uid://b2qfvp8sgk3bo" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/редактор.png" id="5_dkdbp"]
+[ext_resource type="FontFile" uid="uid://c7a5sarchiryp" path="res://UI_ASSETS/UI КЛФИ Сфинкс/HondaC (1).ttf" id="6_dkdbp"]
+[ext_resource type="PackedScene" uid="uid://c6j2ojc5nqgkt" path="res://scenes/Ray.tscn" id="7_17ns2"]
+[ext_resource type="PackedScene" uid="uid://cxik2kyi7t48x" path="res://scenes/Elements/Filter.tscn" id="7_knsn4"]
+[ext_resource type="Texture2D" uid="uid://cl7aejutgcpcr" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/пауза.png" id="10_knsn4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s8j8v"]
+texture = ExtResource("2_asqj8")
+
+[sub_resource type="LabelSettings" id="LabelSettings_asqj8"]
+font = ExtResource("6_dkdbp")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_s8j8v"]
+font = ExtResource("6_dkdbp")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klq1y"]
+size = Vector2(499, 1080)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_knsn4"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dkdbp"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_asqj8"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s8j8v"]
+normal = Vector2(-1, 0)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_pc2xc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("1_8bx8w")
+offset = Vector2(960, 540)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_right = 498.0
+offset_bottom = 1080.0
+size_flags_horizontal = 4
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 9
+
+[node name="Delete Region" type="PanelContainer" parent="ScrollContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(460, 165)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_s8j8v")
+
+[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("2_17ns2")
+alignment = 0
+script = ExtResource("1_l7snq")
+element_sc = ExtResource("2_uuh5w")
+count = 2
+
+[node name="Count_Label" type="Label" parent="ScrollContainer/VBoxContainer/Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.795
+anchor_top = 0.607
+anchor_right = 0.94
+anchor_bottom = 0.844
+offset_left = -0.0599976
+offset_top = -0.0110016
+offset_right = 0.0799866
+offset_bottom = -0.0120087
+grow_vertical = 2
+text = "x3"
+label_settings = SubResource("LabelSettings_asqj8")
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.331
+anchor_top = 0.11
+anchor_right = 1.0
+anchor_bottom = 0.11
+offset_left = 0.09198
+offset_top = -0.0300007
+offset_right = -25.0
+offset_bottom = 26.97
+grow_horizontal = 2
+text = "Mirror"
+label_settings = SubResource("LabelSettings_s8j8v")
+horizontal_alignment = 1
+
+[node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+action_mode = 0
+icon = ExtResource("2_17ns2")
+script = ExtResource("1_l7snq")
+element_sc = ExtResource("7_knsn4")
+count = 2
+
+[node name="Count_Label" type="Label" parent="ScrollContainer/VBoxContainer/Button2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.795
+anchor_top = 0.607
+anchor_right = 0.94
+anchor_bottom = 0.844
+offset_left = -0.0599976
+offset_top = -0.0110016
+offset_right = 0.0799866
+offset_bottom = -0.0120087
+grow_vertical = 2
+text = "x3"
+label_settings = SubResource("LabelSettings_asqj8")
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Button2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.331
+anchor_top = 0.11
+anchor_right = 1.0
+anchor_bottom = 0.11
+offset_left = 0.09198
+offset_top = -0.0300007
+offset_right = -25.0
+offset_bottom = 26.97
+grow_horizontal = 2
+text = "Filter"
+label_settings = SubResource("LabelSettings_s8j8v")
+horizontal_alignment = 1
+
+[node name="Redactor" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(250, 540)
+collision_layer = 3
+script = ExtResource("3_pdpxc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Redactor"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_klq1y")
+
+[node name="RayCast2D" parent="." instance=ExtResource("7_17ns2")]
+position = Vector2(795, 112)
+rotation = -0.713042
+
+[node name="Box" type="StaticBody2D" parent="."]
+position = Vector2(1210, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
+position = Vector2(0, 540)
+shape = SubResource("WorldBoundaryShape2D_knsn4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Box"]
+position = Vector2(0, -540)
+shape = SubResource("WorldBoundaryShape2D_dkdbp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Box"]
+position = Vector2(-710, 0)
+shape = SubResource("WorldBoundaryShape2D_asqj8")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Box"]
+position = Vector2(710, 0)
+shape = SubResource("WorldBoundaryShape2D_s8j8v")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("5_dkdbp")
+offset = Vector2(302, 540)
+
+[node name="Pause" type="Button" parent="."]
+offset_left = 1813.0
+offset_top = 22.0
+offset_right = 1902.0
+offset_bottom = 99.0
+icon = ExtResource("10_knsn4")

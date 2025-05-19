@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://ym616onb2lmp"]
+
+[ext_resource type="Theme" uid="uid://c45ps7vv7tsn4" path="res://scenes/UItheme.tres" id="1_3n4vj"]
+[ext_resource type="Texture2D" uid="uid://m27c1prg06as" path="res://UI_ASSETS/UI КЛФИ Сфинкс/фон.png" id="2_3n4vj"]
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_3n4vj")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3n4vj")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.124
+anchor_top = 0.753
+anchor_right = 0.67
+anchor_bottom = 0.893
+offset_left = 0.279999
+offset_top = -0.160034
+offset_right = 3.39996
+offset_bottom = 0.039978
+theme_override_font_sizes/font_size = 32
+text = "Watashi no na wa Kira Yoshikage. Привет.
+J'ai trente trois ans. I live in Morio city."
+autowrap_mode = 3
+clip_text = true

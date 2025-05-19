@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c45ps7vv7tsn4"]
+
+[ext_resource type="FontFile" uid="uid://c7a5sarchiryp" path="res://UI_ASSETS/UI КЛФИ Сфинкс/HondaC (1).ttf" id="1_j0wne"]
+
+[resource]
+default_font = ExtResource("1_j0wne")
+default_font_size = 40

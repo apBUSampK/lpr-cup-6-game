@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dig1njq2cft4x"]
+
+[ext_resource type="Script" uid="uid://brymsdw4n3ro8" path="res://scripts/Elements/mirror.gd" id="1_dqld0"]
+[ext_resource type="Texture2D" uid="uid://dpa8aj3kveqau" path="res://ELEMENT_ASSETS/стекло2.png" id="2_f2jgb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqld0"]
+size = Vector2(165, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_js6ei"]
+size = Vector2(200, 96)
+
+[node name="Mirror" type="StaticBody2D"]
+script = ExtResource("1_dqld0")
+metadata/_edit_vertical_guides_ = [-50.0, 50.0]
+
+[node name="Стекло2" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
+scale = Vector2(0.0965888, 0.0948791)
+texture = ExtResource("2_f2jgb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+scale = Vector2(0.499364, 0.499364)
+shape = SubResource("RectangleShape2D_dqld0")
+
+[node name="Line2D" type="Line2D" parent="."]
+scale = Vector2(0.499364, 0.499364)
+points = PackedVector2Array(-50, 0, 50, 0)
+width = 5.0
+default_color = Color(0, 0.462571, 0.411974, 1)
+
+[node name="Exclusion" type="Area2D" parent="."]
+scale = Vector2(0.499364, 0.499364)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exclusion"]
+shape = SubResource("RectangleShape2D_js6ei")
+
+[node name="Excluder" type="ColorRect" parent="Exclusion"]
+visible = false
+z_index = 1
+offset_left = -100.0
+offset_top = -48.0
+offset_right = 100.0
+offset_bottom = 48.0
+color = Color(1, 0, 0, 0.501961)

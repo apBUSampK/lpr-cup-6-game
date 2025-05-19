@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4dd0k4f1leqh"]
+
+[ext_resource type="Script" uid="uid://cvml22pyr88qk" path="res://scripts/rigid_body_2d.gd" id="1_jiowd"]
+[ext_resource type="Texture2D" uid="uid://bl81bwvcpia6e" path="res://icon.svg" id="2_2x7xp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6adnx"]
+radius = 60.0
+
+[node name="RigidBody2D" type="RigidBody2D"]
+gravity_scale = 0.0
+linear_damp = 1.0
+script = ExtResource("1_jiowd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6adnx")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_2x7xp")
