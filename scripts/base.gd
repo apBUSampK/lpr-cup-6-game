@@ -82,6 +82,7 @@ func _pause() -> void:
 	save_file.store_32(level_number)
 	save_file.close()
 	$MenuControl/Menu.show()
+	$MenuControl/Menu.disable_new_game()
 	$MenuControl/Menu.enable_continue()
 
 # Switch to next game scene

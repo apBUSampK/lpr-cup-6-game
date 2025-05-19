@@ -12,6 +12,12 @@ func disable_continue():
 func enable_continue():
 	$MenuButtons/VBoxContainer/Continue.disabled = false
 
+func disable_new_game():
+	$"MenuButtons/VBoxContainer/New Game".disabled = true
+
+func enable_new_game():
+	$"MenuButtons/VBoxContainer/New Game".disabled = false
+
 func _on_change_locale_pressed() -> void:
 	emit_signal("change_locale")
 
