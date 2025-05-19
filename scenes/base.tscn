@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://53s0k78ficqe" path="res://scripts/base.gd" id="1_t45w4"]
 [ext_resource type="PackedScene" uid="uid://b6f0cvrdw0fi" path="res://scenes/dialogue.tscn" id="2_40w10"]
-[ext_resource type="PackedScene" path="res://scenes/menu.tscn" id="2_h5ip5"]
-[ext_resource type="PackedScene" path="res://scenes/options.tscn" id="3_40w10"]
+[ext_resource type="PackedScene" uid="uid://bbgwqqyr66igm" path="res://scenes/menu.tscn" id="2_h5ip5"]
+[ext_resource type="PackedScene" uid="uid://ddc53nh2d6kdy" path="res://scenes/options.tscn" id="3_40w10"]
 [ext_resource type="AudioStream" uid="uid://b1gjwa51itv3y" path="res://music/egypt.wav" id="4_h5ip5"]
 
 [node name="Base" type="Node2D"]
@@ -16,7 +16,11 @@ offset_right = 60.0
 offset_bottom = 60.0
 
 [node name="Dialogue" parent="MenuControl" instance=ExtResource("2_40w10")]
+visible = false
 layout_mode = 1
+anchors_preset = -1
+anchor_right = 32.0
+anchor_bottom = 18.0
 
 [node name="Menu" parent="MenuControl" instance=ExtResource("2_h5ip5")]
 layout_mode = 1
