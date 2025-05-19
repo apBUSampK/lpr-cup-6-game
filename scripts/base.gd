@@ -38,7 +38,7 @@ func _on_menu_continue_game() -> void:
 func _on_menu_new_game() -> void:
 	print("new game")
 	$MenuControl/Menu.hide()
-	$MenuControl/Dialogue.UpdateDialogue(DIALOGUES.PracticeOnSimple)
+	$MenuControl/Dialogue.UpdateDialogue(DIALOGUES.Initial)
 	$MenuControl/Dialogue.show()
 
 func _on_menu_options() -> void:
@@ -60,12 +60,15 @@ func _on_options_music_lvl(level: float) -> void:
 func _on_options_sfx_lvl(level: float) -> void:
 	$SFX.volume_linear = level
 
-func _on_dialogue_dialogue_end() -> void:
-	$MenuControl/Dialogue.hide()
-	game_inst = game_scene.instantiate()
-	add_child(game_inst)
-	game_inst.next.connect(_load_next_scene)
-
+func _on_dialogue_dialogue_end(dialogue_number: int) -> void:
+	match dialogue_number:
+		DIALOGUES.Initial:
+			$MenuControl/Dialogue.UpdateDialogue(DIALOGUES.PracticeOnSimple)
+		DIALOGUES.PracticeOnSimple:
+			$MenuControl/Dialogue.hide()
+			game_inst = game_scene.instantiate()
+			add_child(game_inst)
+			game_inst.next.connect(_load_next_scene)
 
 # Switch to next game scene
 func _load_next_scene(next_scene: PackedScene) -> void:

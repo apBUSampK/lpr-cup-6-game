@@ -27,6 +27,7 @@ texture = ExtResource("2_3n4vj")
 expand_mode = 1
 
 [node name="Sphinx" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
