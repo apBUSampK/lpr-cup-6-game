@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://ddud0lt005syb"]
+
+[ext_resource type="FontFile" uid="uid://c7a5sarchiryp" path="res://UI_ASSETS/UI КЛФИ Сфинкс/HondaC (1).ttf" id="1_kyg7x"]
+
+[resource]
+font = ExtResource("1_kyg7x")
+font_color = Color(0, 0, 0, 1)
