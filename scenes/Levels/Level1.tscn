@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b7vhfjrbyr5pc"]
+[gd_scene load_steps=26 format=3 uid="uid://b7vhfjrbyr5pc"]
 
 [ext_resource type="Script" uid="uid://f0c2hv5feerv" path="res://scripts/Level.gd" id="1_nu2g1"]
 [ext_resource type="Texture2D" uid="uid://m27c1prg06as" path="res://UI_ASSETS/UI КЛФИ Сфинкс/фон.png" id="2_5mhgh"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://h6261dtwwgqw" path="res://scenes/Elements/Target.tscn" id="13_5mhgh"]
 [ext_resource type="PackedScene" uid="uid://dvr0333w10df3" path="res://scenes/Elements/Laser.tscn" id="13_dfih8"]
 [ext_resource type="Texture2D" uid="uid://ddgqkkegti6jb" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/редактор2.png" id="14_dfih8"]
+[ext_resource type="Theme" uid="uid://c45ps7vv7tsn4" path="res://scenes/UItheme.tres" id="14_jng41"]
 [ext_resource type="Script" uid="uid://s21h5ud2cxoh" path="res://scripts/tutorial_1.gd" id="15_n31k3"]
 [ext_resource type="LabelSettings" uid="uid://ddud0lt005syb" path="res://resources/text_small.tres" id="16_jng41"]
 
@@ -120,7 +121,7 @@ offset_top = -0.0300007
 offset_right = -25.0
 offset_bottom = 26.97
 grow_horizontal = 2
-text = "Mirror"
+text = "MIRROR"
 label_settings = SubResource("LabelSettings_s8j8v")
 horizontal_alignment = 1
 
@@ -178,6 +179,7 @@ offset_top = 375.0
 offset_right = 1190.0
 offset_bottom = 696.0
 pivot_offset = Vector2(230, 165)
+theme = ExtResource("14_jng41")
 texture = ExtResource("14_dfih8")
 script = ExtResource("15_n31k3")
 
@@ -190,7 +192,10 @@ offset_top = 19.0
 offset_right = 438.0
 offset_bottom = -19.0
 text = "TUT1"
-label_settings = ExtResource("16_jng41")
+label_settings = SubResource("LabelSettings_n31k3")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="ColorRect" type="ColorRect" parent="tutorial_1"]
 z_index = -1
