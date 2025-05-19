@@ -32,17 +32,20 @@ func _emit(data: RayData) -> void:
 		
 		match amplifier_type:
 			1:
-				red += amplifier_power
-				if red > max_power:
-					red = max_power
+				if red > 0:
+					red += amplifier_power
+					if red > max_power:
+						red = max_power
 			2:
-				green += amplifier_power
-				if green > max_power:
-					green = max_power
+				if green > 0:
+					green += amplifier_power
+					if green > max_power:
+						green = max_power
 			3:
-				green += amplifier_power
-				if green > max_power:
-					green = max_power
+				if blue > 0:
+					blue += amplifier_power
+					if blue > max_power:
+						blue = max_power
 		
 		ray.setup(red, green, blue, -1, data.incidence, Vector2.DOWN.rotated(ray.global_rotation), Vector2.INF)
 

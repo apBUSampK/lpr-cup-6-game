@@ -1,5 +1,6 @@
 extends Element
 
+@export var is_target := true
 @export var target_r = 3
 @export var target_g = 3
 @export var target_b = 3
@@ -8,7 +9,8 @@ extends Element
 
 func _ready() -> void:
 	super._ready()
-	add_to_group("Targets", true)
+	if is_target:
+		add_to_group("Targets", true)
 
 func _emit(data: RayData) -> void:
 	if data.id < RayIdChecker.max_id:
