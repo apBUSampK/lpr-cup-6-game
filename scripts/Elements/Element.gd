@@ -39,6 +39,9 @@ func _emit(data: RayData) -> void:
 func _reset(id: int) -> void:
 	pass
 
+func _popup() -> void:
+	pass
+
 func _physics_process(delta: float) -> void:
 	for i in frames_since_hit.size():
 		if frames_since_hit[i] < Max_Frames_Till_Reset:
@@ -69,7 +72,8 @@ func _hover_down() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if event.pressed:
+			if event.button_index == MOUSE_BUTTON_LEFT:
 				if carry and not overlapping_element:
 					carry = false
 					excluder.visible = false
@@ -80,3 +84,5 @@ func _input(event: InputEvent) -> void:
 				elif hovered and not overlapping_element:
 					carry = true
 					PickupController.has_pickup = true
+			if event.button_index == MOUSE_BUTTON_RIGHT and hovered and not carry:
+				_popup()
