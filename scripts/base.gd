@@ -38,6 +38,7 @@ func _on_menu_continue_game() -> void:
 		level_number = save_file.get_32()
 		save_file.close()
 		print("loaded level number = ", level_number)
+	game_inst.show()
 	$MenuControl/Menu.hide()
 
 func _on_menu_new_game() -> void:
@@ -85,6 +86,7 @@ func _save_game() -> void:
 
 func _pause() -> void:
 	_save_game()
+	game_inst.hide()
 	$MenuControl/Menu.show()
 	$MenuControl/Menu.disable_new_game()
 	$MenuControl/Menu.enable_continue()

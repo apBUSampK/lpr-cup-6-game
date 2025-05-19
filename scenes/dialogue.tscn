@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://c45ps7vv7tsn4" path="res://scenes/UItheme.tres" id="1_3n4vj"]
 [ext_resource type="Texture2D" uid="uid://m27c1prg06as" path="res://UI_ASSETS/UI КЛФИ Сфинкс/фон.png" id="2_3n4vj"]
-[ext_resource type="Script" path="res://scripts/dialogue.gd" id="2_led2e"]
+[ext_resource type="Script" uid="uid://dpqpxquor2sfq" path="res://scripts/dialogue.gd" id="2_led2e"]
 [ext_resource type="Texture2D" uid="uid://cckkvrpmcfa1t" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Sphinx.PNG" id="3_fyky8"]
 [ext_resource type="Texture2D" uid="uid://ufbit0o8hvnq" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Диалоговое окно/диалог.png" id="4_led2e"]
 
