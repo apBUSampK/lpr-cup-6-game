@@ -50,6 +50,7 @@ func _on_menu_options() -> void:
 	$MenuControl/Options.show()
 
 func _on_menu_exit_game() -> void:
+	_save_game()
 	get_tree().quit()
 
 # Options screen
@@ -77,10 +78,13 @@ func _on_dialogue_dialogue_end(dialogue_number: int) -> void:
 			game_inst.next.connect(_load_next_scene)
 			game_inst.pause.connect(_pause)
 
-func _pause() -> void:
+func _save_game() -> void:
 	var save_file = FileAccess.open("user://lprGame.save", FileAccess.WRITE)
 	save_file.store_32(level_number)
 	save_file.close()
+
+func _pause() -> void:
+	_save_game()
 	$MenuControl/Menu.show()
 	$MenuControl/Menu.disable_new_game()
 	$MenuControl/Menu.enable_continue()
