@@ -58,3 +58,7 @@ locale/translation_remaps={
 "res://UI_ASSETS/UI КЛФИ Сфинкс/Главное меню/ru.png": PackedStringArray("res://UI_ASSETS/UI КЛФИ Сфинкс/Главное меню/en.png:en")
 }
 locale/translations=PackedStringArray("res://UI_ASSETS/UI КЛФИ Сфинкс/LPRTransl.ru.translation", "res://UI_ASSETS/UI КЛФИ Сфинкс/LPRTransl.en.translation")
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
