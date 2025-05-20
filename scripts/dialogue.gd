@@ -1,12 +1,12 @@
 extends Control
 
-const LINES_VISIBLE := 3
+@onready var LINES_VISIBLE: int = $Dialogue/Text.max_lines_visible
 
 signal dialogue_end(dialogue_number: int)
 @onready var text_box = $Dialogue/Text
 
-const cat_appears_en := [1, 0, 0, 0, 0]
-const cat_appears_ru := [1, 0, 0, 0, 0]
+const cat_appears_en := [1, 24, 0, 0, 0]
+const cat_appears_ru := [1, 30, 0, 0, 0]
 
 var dialogue_number = 0
 
