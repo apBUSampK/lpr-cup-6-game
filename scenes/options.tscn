@@ -117,6 +117,7 @@ theme_override_constants/center_grabber = 1
 theme_override_icons/grabber = ExtResource("4_e6vpq")
 theme_override_icons/grabber_highlight = ExtResource("4_e6vpq")
 max_value = 8.0
+step = 0.1
 
 [node name="SFXLbl" type="Label" parent="."]
 visible = false
@@ -161,6 +162,7 @@ theme_override_constants/center_grabber = 1
 theme_override_icons/grabber = ExtResource("4_e6vpq")
 theme_override_icons/grabber_highlight = ExtResource("4_e6vpq")
 max_value = 8.0
+step = 0.1
 
 [node name="Return" type="TextureButton" parent="."]
 layout_mode = 1

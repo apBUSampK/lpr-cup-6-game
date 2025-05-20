@@ -109,10 +109,10 @@ func _on_options_back() -> void:
 	$MenuControl/Options.hide()
 
 func _on_options_music_lvl(level: float) -> void:
-	$Music.volume_linear = level
+	$Music.volume_linear = (level ** 2) / 12
 
 func _on_options_sfx_lvl(level: float) -> void:
-	$SFX.volume_linear = level
+	$SFX.volume_linear = (level ** 2) / 12
 
 func _start_new_game_instance():
 	level_number = 1

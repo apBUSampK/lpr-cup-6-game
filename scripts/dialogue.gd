@@ -20,9 +20,11 @@ func _input(event: InputEvent) -> void:
 		return
 	if event is InputEventKey and not event.is_echo() and event.is_action_pressed("ui_accept"):
 		text_box.lines_skipped += LINES_VISIBLE
-		var cat_appears_line = cat_appears_en[dialogue_number]
-		if TranslationServer.get_locale() == 'ru_RU':
-			cat_appears_line = cat_appears_ru[dialogue_number]
+		var cat_appears_line = 0
+		if dialogue_number < len(cat_appears_en):
+			cat_appears_line = cat_appears_en[dialogue_number]
+			if TranslationServer.get_locale() == 'ru_RU':
+				cat_appears_line = cat_appears_ru[dialogue_number]
 		if text_box.lines_skipped >= cat_appears_line:
 			$Sphinx.show()
 		if text_box.lines_skipped >= text_box.get_line_count():

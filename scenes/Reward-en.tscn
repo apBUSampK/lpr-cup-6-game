@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://1rprd57xfk6x"]
 
-[ext_resource type="Script" uid="uid://cdkrvhbwusrj1" path="res://scenes/reward.gd" id="1_5ifx5"]
+[ext_resource type="Script" path="res://scenes/reward.gd" id="1_5ifx5"]
 [ext_resource type="Texture2D" uid="uid://m27c1prg06as" path="res://UI_ASSETS/UI КЛФИ Сфинкс/фон.png" id="2_n0ikf"]
 [ext_resource type="Texture2D" uid="uid://ufbit0o8hvnq" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Диалоговое окно/диалог.png" id="3_d5f12"]
 [ext_resource type="FontFile" uid="uid://c7a5sarchiryp" path="res://UI_ASSETS/UI КЛФИ Сфинкс/HondaC (1).ttf" id="4_hfq5w"]

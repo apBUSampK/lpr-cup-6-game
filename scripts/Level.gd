@@ -24,7 +24,7 @@ func _on_pause_pressed() -> void:
 	emit_signal("pause")
 
 func _on_cat_timer_timeout():
-	$CatContainer/CatPhrase.UpdateDialogue(randi_range(1, 3), "PHRASE_")
+	$CatContainer/CatPhrase.UpdateDialogue(randi_range(1, 27), "PHRASE_")
 	$CatContainer/CatPhrase.show()
 	$CatContainer/CatTimer.wait_time = randi_range(60, 120)
 	$CatContainer/CatTimer.start()
