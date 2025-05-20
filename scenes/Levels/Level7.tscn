@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cwqjg7i70ilhl"]
+[gd_scene load_steps=31 format=3 uid="uid://cwqjg7i70ilhl"]
 
 [ext_resource type="Script" uid="uid://f0c2hv5feerv" path="res://scripts/Level.gd" id="1_67vts"]
 [ext_resource type="PackedScene" uid="uid://h6261dtwwgqw" path="res://scenes/Elements/Target.tscn" id="2_h4g03"]
@@ -17,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://b2qfvp8sgk3bo" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/редактор.png" id="15_xpwj6"]
 [ext_resource type="Texture2D" uid="uid://cl7aejutgcpcr" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/пауза.png" id="16_jqukk"]
 [ext_resource type="Script" uid="uid://camaf3w8fvwr" path="res://scripts/congrats.gd" id="17_h4g03"]
+[ext_resource type="Texture2D" uid="uid://ddgqkkegti6jb" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/редактор2.png" id="18_nosq7"]
+[ext_resource type="Script" uid="uid://s21h5ud2cxoh" path="res://scripts/tutorial_1.gd" id="19_xyv7c"]
+[ext_resource type="LabelSettings" uid="uid://ddud0lt005syb" path="res://resources/text_small.tres" id="20_maeo2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h8vgy"]
 font = ExtResource("8_st84h")
@@ -282,3 +285,34 @@ offset_bottom = 918.0
 text = "WIN"
 label_settings = SubResource("LabelSettings_5cwq4")
 script = ExtResource("17_h4g03")
+
+[node name="tutorial_1" type="TextureRect" parent="."]
+z_index = 4
+offset_left = 730.0
+offset_top = 375.0
+offset_right = 1190.0
+offset_bottom = 696.0
+pivot_offset = Vector2(230, 165)
+texture = ExtResource("18_nosq7")
+script = ExtResource("19_xyv7c")
+
+[node name="Label" type="Label" parent="tutorial_1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 19.0
+offset_right = 438.0
+offset_bottom = -19.0
+text = "TUT7"
+label_settings = ExtResource("20_maeo2")
+autowrap_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="tutorial_1"]
+z_index = -1
+layout_mode = 0
+offset_left = -968.0
+offset_top = -515.0
+offset_right = 1554.0
+offset_bottom = 823.0
+color = Color(0, 0, 0, 0.407843)

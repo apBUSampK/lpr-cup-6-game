@@ -9,6 +9,7 @@ func _emit(data: RayData) -> void:
 			for ray : RayCast2D in rays[data.id]:
 				add_child(ray)
 				ray.setup(data.red_p, data.green_p, data.blue_p, RayIdChecker.get_id(), data.incidence, Vector2.DOWN, Vector2.INF)
+				print(ray.data.id)
 		for i in range(3):
 			rays[data.id][i].global_position = data.incidence
 			rays[data.id][i].global_rotation = -data.heading.angle_to(Vector2.DOWN) + (i - 1) * PI/8 + PI/16

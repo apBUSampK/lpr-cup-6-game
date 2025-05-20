@@ -32,7 +32,7 @@ func _emit(data: RayData) -> void:
 			g += data.green_p
 			b += data.blue_p
 			collected_rays[data.id] = RayData.new(data.red_p, data.green_p, data.blue_p)
-	solved = (data.red_p == target_r and data.green_p == target_g and data.blue_p == target_b) if target_tot < 0 else (target_tot == (target_r + target_g + target_b))
+	solved = (r == target_r and g == target_g and b == target_b) if target_tot < 0 else (target_tot == (r + g + b))
 
 func _reset(id: int) -> void:
 	r -= collected_rays[id].red_p
@@ -45,6 +45,6 @@ func _popup() -> void:
 	var box = InfoBox.instantiate()
 	box.text = "DET TOTAL: " + str(r + g + b)
 	if is_target:
-		box.text += ("\nREQ: R" + str(target_r) + " G" + str(target_g) + " B" + str(target_b) ) if target_tot < 0 else ("REQ TOTAL: " + str(target_tot))
+		box.text += ("\nREQ: R" + str(target_r) + " G" + str(target_g) + " B" + str(target_b) ) if target_tot < 0 else ("\nREQ TOTAL: " + str(target_tot))
 	box.global_position = global_position + Vector2.DOWN * 40
 	get_tree().root.add_child(box)

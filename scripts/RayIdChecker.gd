@@ -1,6 +1,6 @@
 extends Node
 
-var max_id := 100
+var max_id := 1000
 var available_ids : Array
 
 func _init() -> void:

@@ -4,15 +4,16 @@ extends Node2D
 
 var locale_en := false
 var level_number := -1
-var game_inst : Node2D
+var game_inst : Node
 
 var audio_stream := AudioStreamMP3.new()
 
 enum DIALOGUES {
 	Initial = 1,
-	PracticeOnSimple = 2,
-	TrySolveTheFollowing = 3,
-	AReallyDifficult = 4
+	TrySolveTheFollowing = 2,
+	PracticeOnSimple = 3,
+	AReallyDifficult = 4,
+	Final = 5
 }
 
 var MUSIC = {
@@ -59,8 +60,31 @@ func _on_menu_continue_game() -> void:
 		level_number = save_file.get_32()
 		save_file.close()
 		print("loaded level number = ", level_number)
+		game_inst = load("res://scenes/Levels/Level"+str(level_number)+".tscn").instantiate()
+		game_inst.next.connect(_load_next_scene)
+		game_inst.pause.connect(_pause)
+		add_child(game_inst)
+		match level_number:
+			6:
+				$MenuControl/Dialogue.UpdateDialogue(DIALOGUES.TrySolveTheFollowing)	
+			7:
+				$MenuControl/Dialogue.UpdateDialogue(DIALOGUES.AReallyDifficult)
+			8:
+				$MenuControl/Dialogue.UpdateDialogue(DIALOGUES.Final)
+			_:
+				$MenuControl/Dialogue.UpdateDialogue(DIALOGUES.PracticeOnSimple)
 	game_inst.show()
-	_set_music(MUSIC['INGAME'])
+	
+	match level_number:
+		6:
+			_set_music(MUSIC['DF1'])
+		7:
+			_set_music(MUSIC['DF2'])
+		8:
+			_set_music(MUSIC['DF3'])
+		_:
+			_set_music(MUSIC['INGAME'])
+			
 	$MenuControl/Menu.hide()
 
 func _on_menu_new_game() -> void:
@@ -110,20 +134,34 @@ func _on_dialogue_dialogue_end(dialogue_number: int) -> void:
 			game_inst = load("res://scenes/Levels/Level6.tscn").instantiate()
 			add_child(game_inst)
 			_set_music(MUSIC['TF1'])
+			RayIdChecker._init()
+			PickupController.has_pickup = false
 			game_inst.next.connect(_load_next_scene)
+			game_inst.pause.connect(_pause)
 		DIALOGUES.TrySolveTheFollowing:
 			$MenuControl/Dialogue.hide()
 			$MenuControl/Dialogue.UpdateDialogue(DIALOGUES.AReallyDifficult)
 			game_inst = load("res://scenes/Levels/Level7.tscn").instantiate()
+			RayIdChecker._init()
+			PickupController.has_pickup = false
 			add_child(game_inst)
 			_set_music(MUSIC['TF2'])
 			game_inst.next.connect(_load_next_scene)
+			game_inst.pause.connect(_pause)
 		DIALOGUES.AReallyDifficult:
 			$MenuControl/Dialogue.hide()
+			$MenuControl/Dialogue.UpdateDialogue(DIALOGUES.Final)
 			game_inst = load("res://scenes/Levels/Level8.tscn").instantiate()
+			RayIdChecker._init()
+			PickupController.has_pickup = false
 			add_child(game_inst)
 			_set_music(MUSIC['TF3'])
 			game_inst.next.connect(_load_next_scene)
+			game_inst.pause.connect(_pause)
+		DIALOGUES.Final:
+			$MenuControl/Dialogue.hide()
+			game_inst = $MenuControl/Reward if locale_en else $MenuControl/Reward2
+			game_inst.show()
 
 func _save_game() -> void:
 	var save_file = FileAccess.open("user://lprGame.save", FileAccess.WRITE)
@@ -159,5 +197,6 @@ func _load_next_scene(next_scene: PackedScene) -> void:
 		game_inst = next_scene.instantiate()
 		add_child(game_inst)
 		game_inst.next.connect(_load_next_scene)
+		game_inst.pause.connect(_pause)
 	else:
 		$MenuControl/Dialogue.show()

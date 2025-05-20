@@ -688,16 +688,19 @@ redactable = false
 position = Vector2(981, 117)
 rotation = -2.95561
 is_target = false
+redactable = false
 
 [node name="Target3" parent="." instance=ExtResource("2_ia2xr")]
 position = Vector2(1113, 131)
 rotation = -2.57892
 is_target = false
+redactable = false
 
 [node name="Target4" parent="." instance=ExtResource("2_ia2xr")]
 position = Vector2(1233, 195)
 rotation = -2.11671
 is_target = false
+redactable = false
 
 [node name="Congrats" type="Label" parent="."]
 visible = false

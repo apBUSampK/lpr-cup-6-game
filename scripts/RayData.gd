@@ -19,4 +19,4 @@ func _init(r=3, g=3, b=3):
 	origin = Vector2.INF
 	incidence = origin
 	heading = origin
-	id = - 1
+	id = 0

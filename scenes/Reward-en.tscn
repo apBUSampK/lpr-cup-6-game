@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://1rprd57xfk6x"]
+
+[ext_resource type="Script" uid="uid://cdkrvhbwusrj1" path="res://scenes/reward.gd" id="1_5ifx5"]
+[ext_resource type="Texture2D" uid="uid://m27c1prg06as" path="res://UI_ASSETS/UI КЛФИ Сфинкс/фон.png" id="2_n0ikf"]
+[ext_resource type="Texture2D" uid="uid://ufbit0o8hvnq" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Диалоговое окно/диалог.png" id="3_d5f12"]
+[ext_resource type="FontFile" uid="uid://c7a5sarchiryp" path="res://UI_ASSETS/UI КЛФИ Сфинкс/HondaC (1).ttf" id="4_hfq5w"]
+[ext_resource type="Texture2D" uid="uid://6im8808xxxty" path="res://REWARDS/photo_2025-05-20_10-09-45.jpg" id="5_lcglx"]
+[ext_resource type="Texture2D" uid="uid://bp8ycqyvqlmi7" path="res://REWARDS/photo_2025-05-20_10-10-23.jpg" id="6_5ifx5"]
+[ext_resource type="Texture2D" uid="uid://kmfgm8m08ag0" path="res://REWARDS/photo_2025-05-20_10-10-17.jpg" id="7_170l2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pleyb"]
+font = ExtResource("4_hfq5w")
+font_size = 96
+
+[node name="Reward" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5ifx5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1880.0
+offset_bottom = -1040.0
+texture = ExtResource("2_n0ikf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(313, 961)
+scale = Vector2(0.341912, 0.341912)
+texture = ExtResource("3_d5f12")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -122.839
+offset_top = -52.6452
+offset_right = 156.161
+offset_bottom = 65.3548
+text = "Order 1"
+label_settings = SubResource("LabelSettings_pleyb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(956, 961)
+scale = Vector2(0.341912, 0.341912)
+texture = ExtResource("3_d5f12")
+
+[node name="Label" type="Label" parent="Sprite2D2"]
+offset_left = -102.366
+offset_top = -52.6452
+offset_right = 195.634
+offset_bottom = 65.3548
+text = "Order 2"
+label_settings = SubResource("LabelSettings_pleyb")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(1594, 961)
+scale = Vector2(0.341912, 0.341912)
+texture = ExtResource("3_d5f12")
+
+[node name="Label" type="Label" parent="Sprite2D3"]
+offset_left = -99.4412
+offset_top = -55.5699
+offset_right = 199.559
+offset_bottom = 62.4301
+text = "Order 3"
+label_settings = SubResource("LabelSettings_pleyb")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(409, 445)
+rotation = -0.334313
+texture = ExtResource("5_lcglx")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(1567, 483)
+rotation = -0.165229
+scale = Vector2(1.21892, 1.21892)
+texture = ExtResource("6_5ifx5")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(962, 568)
+rotation = 0.0293165
+texture = ExtResource("7_170l2")

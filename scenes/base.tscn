@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bal7a30wde4xi"]
+[gd_scene load_steps=8 format=3 uid="uid://bal7a30wde4xi"]
 
 [ext_resource type="Script" uid="uid://53s0k78ficqe" path="res://scripts/base.gd" id="1_t45w4"]
 [ext_resource type="PackedScene" uid="uid://b6f0cvrdw0fi" path="res://scenes/dialogue.tscn" id="2_40w10"]
 [ext_resource type="PackedScene" uid="uid://bbgwqqyr66igm" path="res://scenes/menu.tscn" id="2_h5ip5"]
 [ext_resource type="PackedScene" uid="uid://ddc53nh2d6kdy" path="res://scenes/options.tscn" id="3_40w10"]
 [ext_resource type="AudioStream" uid="uid://1f0mfp848jpd" path="res://music/Меню.mp3" id="5_40w10"]
+[ext_resource type="PackedScene" uid="uid://1rprd57xfk6x" path="res://scenes/Reward-en.tscn" id="5_hh5oj"]
+[ext_resource type="PackedScene" uid="uid://b2njrtv2eb8p2" path="res://scenes/Reward.tscn" id="6_vqfsp"]
 
 [node name="Base" type="Node2D"]
 script = ExtResource("1_t45w4")
@@ -46,6 +48,14 @@ anchor_right = 32.0
 anchor_bottom = 18.0
 mouse_force_pass_scroll_events = false
 
+[node name="Reward" parent="MenuControl" instance=ExtResource("5_hh5oj")]
+visible = false
+layout_mode = 1
+
+[node name="Reward2" parent="MenuControl" instance=ExtResource("6_vqfsp")]
+visible = false
+layout_mode = 1
+
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
@@ -62,3 +72,5 @@ autoplay = true
 [connection signal="music_lvl" from="MenuControl/Options" to="." method="_on_options_music_lvl"]
 [connection signal="sfx_lvl" from="MenuControl/Options" to="." method="_on_options_sfx_lvl"]
 [connection signal="dialogue_end" from="MenuControl/Dialogue" to="." method="_on_dialogue_dialogue_end"]
+[connection signal="reward_exit" from="MenuControl/Reward" to="." method="_pause"]
+[connection signal="reward_exit" from="MenuControl/Reward2" to="." method="_pause"]
