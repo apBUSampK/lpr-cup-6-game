@@ -399,6 +399,10 @@ position = Vector2(85, 86)
 scale = Vector2(0.0999377, 0.0999377)
 texture = ExtResource("11_chqga")
 
+[node name="Panel" type="Panel" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
 [node name="Redactor" type="Area2D" parent="."]
 z_index = 1
 position = Vector2(250, 540)

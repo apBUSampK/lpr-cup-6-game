@@ -170,6 +170,7 @@ icon = ExtResource("12_w2t11")
 [node name="NLFilter" parent="." instance=ExtResource("13_sonym")]
 position = Vector2(1149, 541)
 rotation = 1.5708
+redactable = false
 
 [node name="Congrats" type="Label" parent="."]
 visible = false
