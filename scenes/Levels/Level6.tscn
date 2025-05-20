@@ -742,5 +742,6 @@ wait_time = 40.0
 one_shot = true
 autostart = true
 
+[connection signal="too_much_clicks" from="Laser" to="." method="_on_laser_too_much_clicks"]
 [connection signal="dialogue_end" from="CatContainer/CatPhrase" to="." method="_on_cat_phrase_dialogue_end"]
 [connection signal="timeout" from="CatContainer/CatTimer" to="." method="_on_cat_timer_timeout"]

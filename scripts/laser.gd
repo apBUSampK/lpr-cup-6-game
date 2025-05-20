@@ -12,3 +12,14 @@ func _ready() -> void:
 	ray.recolor()
 	
 	$Exclusion.add_to_group("Element_Exclusion")
+
+var click_count := 0
+const CLICK_THRESHOLD := 6
+signal too_much_clicks
+
+func _on_exclusion_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.is_pressed():
+		click_count += 1
+		if click_count > CLICK_THRESHOLD:
+			click_count = 0
+			emit_signal("too_much_clicks")

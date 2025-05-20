@@ -41,3 +41,9 @@ func _on_cat_phrase_dialogue_end(dialogue_number):
 func _on_tutorial_1_tutorial_closed():
 	if not $CatContainer/CatTimer.is_stopped():
 		$CatContainer/CatTimer.start()
+
+func _on_laser_too_much_clicks():
+	$CatContainer/CatPhrase.UpdateDialogue(9, "PHRASE_")
+	$CatContainer/CatPhrase.show()
+	$CatContainer/CatTimer.wait_time = randi_range(60, 120)
+	$CatContainer/CatTimer.start()

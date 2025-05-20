@@ -43,3 +43,5 @@ offset_top = -111.0
 offset_right = 100.0
 offset_bottom = 109.0
 color = Color(1, 0, 0, 0.501961)
+
+[connection signal="input_event" from="Exclusion" to="." method="_on_exclusion_input_event"]
