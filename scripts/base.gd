@@ -13,7 +13,7 @@ enum DIALOGUES {
 	TrySolveTheFollowing = 2,
 	PracticeOnSimple = 3,
 	AReallyDifficult = 4,
-	Final = 5
+	Final = 5	
 }
 
 var MUSIC = {
