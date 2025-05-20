@@ -718,6 +718,7 @@ label_settings = SubResource("LabelSettings_ffggp")
 script = ExtResource("25_ia2xr")
 
 [node name="CatContainer" type="Control" parent="."]
+z_index = 1
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0

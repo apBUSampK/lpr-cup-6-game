@@ -278,9 +278,9 @@ script = ExtResource("15_5lv35")
 [node name="tutorial_1" type="TextureRect" parent="."]
 z_index = 4
 offset_left = 730.0
-offset_top = 375.0
+offset_top = 300.0
 offset_right = 1190.0
-offset_bottom = 696.0
+offset_bottom = 748.0
 scale = Vector2(1.5, 1.5)
 pivot_offset = Vector2(230, 165)
 texture = ExtResource("16_0ijgq")
@@ -308,6 +308,7 @@ offset_bottom = 823.0
 color = Color(0, 0, 0, 0.407843)
 
 [node name="CatContainer" type="Control" parent="."]
+z_index = 1
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0

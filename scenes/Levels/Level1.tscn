@@ -230,6 +230,7 @@ rotation = -1.59502
 points = PackedVector2Array(1384, 948, 1413, 928)
 
 [node name="CatContainer" type="Control" parent="."]
+z_index = 1
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0

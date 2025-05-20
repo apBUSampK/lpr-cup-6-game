@@ -183,6 +183,7 @@ label_settings = SubResource("LabelSettings_f1w8t")
 script = ExtResource("14_kmbok")
 
 [node name="CatContainer" type="Control" parent="."]
+z_index = 1
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
