@@ -29,7 +29,7 @@ var MUSIC = {
 }
 
 func _set_music(path: String):
-	$Music.stream = audio_stream.load_from_file(path)
+	$Music.stream = load(path)
 	$Music.play()
 
 func _ready() -> void:
