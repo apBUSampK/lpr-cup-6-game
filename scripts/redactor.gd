@@ -15,7 +15,7 @@ func _ready() -> void:
 	add_child(timer)
 
 func _on_timer_timeout() -> void:
-	if not PickupController.has_pickup:
+	if not PickupController.over_redactor:
 		var bodies := get_overlapping_bodies()
 		for body in bodies:
 			if body is Element:

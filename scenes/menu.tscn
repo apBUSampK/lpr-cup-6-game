@@ -114,6 +114,7 @@ text = "OPT"
 horizontal_alignment = 1
 
 [node name="Exit" type="TextureButton" parent="MenuButtons/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 81.935)
 layout_mode = 2
 texture_normal = ExtResource("3_4ytvr")
