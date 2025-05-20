@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b7vhfjrbyr5pc"]
+[gd_scene load_steps=27 format=3 uid="uid://b7vhfjrbyr5pc"]
 
 [ext_resource type="Script" uid="uid://f0c2hv5feerv" path="res://scripts/Level.gd" id="1_nu2g1"]
 [ext_resource type="Texture2D" uid="uid://m27c1prg06as" path="res://UI_ASSETS/UI КЛФИ Сфинкс/фон.png" id="2_5mhgh"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://s21h5ud2cxoh" path="res://scripts/tutorial_1.gd" id="15_n31k3"]
 [ext_resource type="LabelSettings" uid="uid://ddud0lt005syb" path="res://resources/text_small.tres" id="16_jng41"]
 [ext_resource type="Script" uid="uid://camaf3w8fvwr" path="res://scripts/congrats.gd" id="17_yclo3"]
+[ext_resource type="PackedScene" uid="uid://cwfsvv3fqc4ep" path="res://CatPhrase.tscn" id="18_84hcr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_asqj8"]
 font = ExtResource("7_84hcr")
@@ -184,9 +185,9 @@ script = ExtResource("17_yclo3")
 [node name="tutorial_1" type="TextureRect" parent="."]
 z_index = 4
 offset_left = 730.0
-offset_top = 375.0
+offset_top = 313.0
 offset_right = 1190.0
-offset_bottom = 696.0
+offset_bottom = 789.0
 pivot_offset = Vector2(230, 165)
 texture = ExtResource("14_dfih8")
 script = ExtResource("15_n31k3")
@@ -226,3 +227,30 @@ points = PackedVector2Array(1382, 909, 1413, 928)
 position = Vector2(-157.271, 2086.79)
 rotation = -1.59502
 points = PackedVector2Array(1384, 948, 1413, 928)
+
+[node name="CatContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="CatPhrase" parent="CatContainer" instance=ExtResource("18_84hcr")]
+visible = false
+layout_mode = 2
+anchors_preset = 0
+offset_right = 1851.0
+offset_bottom = 1009.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="CatTimer" type="Timer" parent="CatContainer"]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="tutorial_closed" from="tutorial_1" to="." method="_on_tutorial_1_tutorial_closed"]
+[connection signal="dialogue_end" from="CatContainer/CatPhrase" to="." method="_on_cat_phrase_dialogue_end"]
+[connection signal="timeout" from="CatContainer/CatTimer" to="." method="_on_cat_timer_timeout"]

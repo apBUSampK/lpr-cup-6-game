@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cwqjg7i70ilhl"]
+[gd_scene load_steps=32 format=3 uid="uid://cwqjg7i70ilhl"]
 
 [ext_resource type="Script" uid="uid://f0c2hv5feerv" path="res://scripts/Level.gd" id="1_67vts"]
 [ext_resource type="PackedScene" uid="uid://h6261dtwwgqw" path="res://scenes/Elements/Target.tscn" id="2_h4g03"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://b2qfvp8sgk3bo" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/редактор.png" id="15_xpwj6"]
 [ext_resource type="Texture2D" uid="uid://cl7aejutgcpcr" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/пауза.png" id="16_jqukk"]
 [ext_resource type="Script" uid="uid://camaf3w8fvwr" path="res://scripts/congrats.gd" id="17_h4g03"]
+[ext_resource type="PackedScene" uid="uid://cwfsvv3fqc4ep" path="res://CatPhrase.tscn" id="18_5cwq4"]
 [ext_resource type="Texture2D" uid="uid://ddgqkkegti6jb" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/редактор2.png" id="18_nosq7"]
 [ext_resource type="Script" uid="uid://s21h5ud2cxoh" path="res://scripts/tutorial_1.gd" id="19_xyv7c"]
 [ext_resource type="LabelSettings" uid="uid://ddud0lt005syb" path="res://resources/text_small.tres" id="20_maeo2"]
@@ -316,3 +317,30 @@ offset_top = -515.0
 offset_right = 1554.0
 offset_bottom = 823.0
 color = Color(0, 0, 0, 0.407843)
+
+[node name="CatContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="CatPhrase" parent="CatContainer" instance=ExtResource("18_5cwq4")]
+visible = false
+layout_mode = 2
+anchors_preset = 0
+offset_right = 1851.0
+offset_bottom = 1009.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="CatTimer" type="Timer" parent="CatContainer"]
+wait_time = 40.0
+one_shot = true
+autostart = true
+
+[connection signal="dialogue_end" from="CatContainer/CatPhrase" to="." method="_on_cat_phrase_dialogue_end"]
+[connection signal="timeout" from="CatContainer/CatTimer" to="." method="_on_cat_timer_timeout"]

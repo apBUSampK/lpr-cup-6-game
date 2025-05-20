@@ -22,3 +22,15 @@ func _ready() -> void:
 func _on_pause_pressed() -> void:
 	print("pause")
 	emit_signal("pause")
+
+func _on_cat_timer_timeout():
+	$CatContainer/CatPhrase.UpdateDialogue(randi_range(1, 3), "PHRASE_")
+	$CatContainer/CatPhrase.show()
+	$CatContainer/CatTimer.wait_time = randi_range(60, 120)
+	$CatContainer/CatTimer.start()
+
+func _on_cat_phrase_dialogue_end(dialogue_number):
+	$CatContainer/CatPhrase.hide()
+
+func _on_tutorial_1_tutorial_closed():
+	$CatContainer/CatTimer.start()

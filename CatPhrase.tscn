@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwfsvv3fqc4ep"]
+
+[ext_resource type="Theme" uid="uid://c45ps7vv7tsn4" path="res://scenes/UItheme.tres" id="1_dxvoq"]
+[ext_resource type="Script" uid="uid://dpqpxquor2sfq" path="res://scripts/dialogue.gd" id="2_mg0b7"]
+[ext_resource type="Texture2D" uid="uid://cckkvrpmcfa1t" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Sphinx.PNG" id="4_rwyip"]
+[ext_resource type="Texture2D" uid="uid://ufbit0o8hvnq" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Диалоговое окно/диалог.png" id="5_5pc62"]
+
+[node name="CatPhrase" type="Control"]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dxvoq")
+script = ExtResource("2_mg0b7")
+
+[node name="Sphinx" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1417.0
+offset_top = 292.0
+offset_right = 5.0
+offset_bottom = -233.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_rwyip")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Dialogue" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.117
+anchor_top = 0.697
+anchor_right = 0.87
+anchor_bottom = 0.96
+offset_left = -122.64
+offset_top = 16.24
+offset_right = -121.4
+offset_bottom = 16.2001
+texture = ExtResource("5_5pc62")
+expand_mode = 1
+
+[node name="Text" type="Label" parent="Dialogue"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.133
+anchor_top = 0.169
+anchor_right = 0.924
+anchor_bottom = 0.779
+offset_left = 18.549
+offset_top = 2.004
+offset_right = 2.97192
+offset_bottom = 18.764
+theme_override_font_sizes/font_size = 32
+text = "DIALOGUE_1"
+autowrap_mode = 3
+max_lines_visible = 3

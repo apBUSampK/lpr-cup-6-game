@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://df5cew7jk3f4b"]
+[gd_scene load_steps=24 format=3 uid="uid://df5cew7jk3f4b"]
 
 [ext_resource type="Script" uid="uid://f0c2hv5feerv" path="res://scripts/Level.gd" id="1_p7xh8"]
 [ext_resource type="PackedScene" uid="uid://h6261dtwwgqw" path="res://scenes/Elements/Target.tscn" id="2_kmbok"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cl7aejutgcpcr" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/пауза.png" id="12_w2t11"]
 [ext_resource type="PackedScene" uid="uid://p11nsrxcw8r5" path="res://scenes/Elements/NLFilter.tscn" id="13_sonym"]
 [ext_resource type="Script" uid="uid://camaf3w8fvwr" path="res://scripts/congrats.gd" id="14_kmbok"]
+[ext_resource type="PackedScene" uid="uid://cwfsvv3fqc4ep" path="res://CatPhrase.tscn" id="15_f1w8t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ukhgg"]
 font = ExtResource("8_hpel6")
@@ -179,3 +180,30 @@ offset_bottom = 918.0
 text = "WIN"
 label_settings = SubResource("LabelSettings_f1w8t")
 script = ExtResource("14_kmbok")
+
+[node name="CatContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="CatPhrase" parent="CatContainer" instance=ExtResource("15_f1w8t")]
+visible = false
+layout_mode = 2
+anchors_preset = 0
+offset_right = 1851.0
+offset_bottom = 1009.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="CatTimer" type="Timer" parent="CatContainer"]
+wait_time = 40.0
+one_shot = true
+autostart = true
+
+[connection signal="dialogue_end" from="CatContainer/CatPhrase" to="." method="_on_cat_phrase_dialogue_end"]
+[connection signal="timeout" from="CatContainer/CatTimer" to="." method="_on_cat_timer_timeout"]

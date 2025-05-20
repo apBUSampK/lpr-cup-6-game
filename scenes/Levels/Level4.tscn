@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://iasqv0qhks4w"]
+[gd_scene load_steps=34 format=3 uid="uid://iasqv0qhks4w"]
 
 [ext_resource type="Script" uid="uid://f0c2hv5feerv" path="res://scripts/Level.gd" id="1_f6l0j"]
 [ext_resource type="PackedScene" uid="uid://cqe4w2r8b4h4v" path="res://scenes/Levels/Level5.tscn" id="2_h8vgy"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://ddgqkkegti6jb" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/редактор2.png" id="19_h8vgy"]
 [ext_resource type="Script" uid="uid://s21h5ud2cxoh" path="res://scripts/tutorial_1.gd" id="20_okxe8"]
 [ext_resource type="LabelSettings" uid="uid://ddud0lt005syb" path="res://resources/text_small.tres" id="21_r53pb"]
+[ext_resource type="PackedScene" uid="uid://cwfsvv3fqc4ep" path="res://CatPhrase.tscn" id="23_okxe8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h8vgy"]
 font = ExtResource("8_2wvu5")
@@ -327,3 +328,30 @@ offset_top = -515.0
 offset_right = 1554.0
 offset_bottom = 823.0
 color = Color(0, 0, 0, 0.407843)
+
+[node name="CatContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="CatPhrase" parent="CatContainer" instance=ExtResource("23_okxe8")]
+visible = false
+layout_mode = 2
+anchors_preset = 0
+offset_right = 1851.0
+offset_bottom = 1009.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="CatTimer" type="Timer" parent="CatContainer"]
+wait_time = 40.0
+one_shot = true
+
+[connection signal="tutorial_closed" from="tutorial_1" to="." method="_on_tutorial_1_tutorial_closed"]
+[connection signal="dialogue_end" from="CatContainer/CatPhrase" to="." method="_on_cat_phrase_dialogue_end"]
+[connection signal="timeout" from="CatContainer/CatTimer" to="." method="_on_cat_timer_timeout"]
