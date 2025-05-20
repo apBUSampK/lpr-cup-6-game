@@ -281,6 +281,7 @@ offset_left = 730.0
 offset_top = 375.0
 offset_right = 1190.0
 offset_bottom = 696.0
+scale = Vector2(1.5, 1.5)
 pivot_offset = Vector2(230, 165)
 texture = ExtResource("16_0ijgq")
 script = ExtResource("17_5a00w")

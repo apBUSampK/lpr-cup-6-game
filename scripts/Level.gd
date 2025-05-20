@@ -39,4 +39,5 @@ func _on_cat_phrase_dialogue_end(dialogue_number):
 		$Congrats.show()
 
 func _on_tutorial_1_tutorial_closed():
-	$CatContainer/CatTimer.start()
+	if not $CatContainer/CatTimer.is_stopped():
+		$CatContainer/CatTimer.start()

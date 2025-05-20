@@ -68,7 +68,7 @@ font = ExtResource("8_ql5sk")
 font_size = 42
 font_color = Color(0, 0, 0, 1)
 
-[node name="Level" type="Node2D"]
+[node name="Level3" type="Node2D"]
 script = ExtResource("1_57hjj")
 
 [node name="Target" parent="." instance=ExtResource("2_h0mm7")]
@@ -483,6 +483,7 @@ offset_left = 730.0
 offset_top = 375.0
 offset_right = 1190.0
 offset_bottom = 696.0
+scale = Vector2(1.5, 1.5)
 pivot_offset = Vector2(230, 165)
 texture = ExtResource("22_apex8")
 script = ExtResource("23_cv2rl")

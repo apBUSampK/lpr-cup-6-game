@@ -45,7 +45,7 @@ font = ExtResource("8_hpel6")
 font_size = 42
 font_color = Color(0, 0, 0, 1)
 
-[node name="Level" type="Node2D"]
+[node name="Level4" type="Node2D"]
 script = ExtResource("1_p7xh8")
 
 [node name="Target" parent="." instance=ExtResource("2_kmbok")]
