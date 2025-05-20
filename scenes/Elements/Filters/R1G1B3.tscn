@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnfe81bqi666n"]
+
+[ext_resource type="Script" uid="uid://p5d071ae7xtb" path="res://scripts/Elements/filter.gd" id="1_ynybj"]
+[ext_resource type="Texture2D" uid="uid://bifp7kujmqq7p" path="res://ELEMENT_ASSETS/фильтр2.png" id="2_iww4j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqld0"]
+size = Vector2(200, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sip5k"]
+size = Vector2(200, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gti3"]
+size = Vector2(7, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0y8wy"]
+size = Vector2(7.5, 18.5)
+
+[node name="Filter" type="StaticBody2D"]
+script = ExtResource("1_ynybj")
+blue_power = 3
+metadata/_edit_vertical_guides_ = [-50.0, 50.0]
+
+[node name="Фильтр2" type="Sprite2D" parent="."]
+position = Vector2(2.18153e-05, -2.68221e-07)
+scale = Vector2(0.0837011, 0.0846272)
+texture = ExtResource("2_iww4j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.497185, 0.497185)
+shape = SubResource("RectangleShape2D_dqld0")
+
+[node name="Exclusion" type="Area2D" parent="."]
+scale = Vector2(0.497185, 0.497185)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exclusion"]
+shape = SubResource("RectangleShape2D_sip5k")
+
+[node name="Excluder" type="ColorRect" parent="Exclusion"]
+visible = false
+offset_left = -100.0
+offset_top = -49.0
+offset_right = 100.0
+offset_bottom = 49.0
+color = Color(1, 0, 0, 0.501961)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-47.5, -1)
+shape = SubResource("RectangleShape2D_1gti3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(47, -1)
+shape = SubResource("RectangleShape2D_0y8wy")

@@ -4,7 +4,6 @@ var max_id := 100
 var available_ids : Array
 
 func _init() -> void:
-	max_id = 100
 	available_ids = range(1, max_id + 1)
 
 func get_id() -> Variant:

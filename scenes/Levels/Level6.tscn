@@ -1,0 +1,710 @@
+[gd_scene load_steps=37 format=3 uid="uid://csdeijik57tx0"]
+
+[ext_resource type="Script" uid="uid://f0c2hv5feerv" path="res://scripts/Level.gd" id="1_0gesw"]
+[ext_resource type="PackedScene" uid="uid://h6261dtwwgqw" path="res://scenes/Elements/Target.tscn" id="2_ia2xr"]
+[ext_resource type="PackedScene" uid="uid://dvr0333w10df3" path="res://scenes/Elements/Laser.tscn" id="3_ffggp"]
+[ext_resource type="Texture2D" uid="uid://m27c1prg06as" path="res://UI_ASSETS/UI КЛФИ Сфинкс/фон.png" id="4_0ve2q"]
+[ext_resource type="Texture2D" uid="uid://2p6oerfjwue0" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/редактор1.png" id="5_tbfc6"]
+[ext_resource type="Texture2D" uid="uid://trhoq3bn8ard" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/элемент.png" id="6_cqumv"]
+[ext_resource type="Script" uid="uid://wribtmr82mae" path="res://scripts/spawn.gd" id="7_coymw"]
+[ext_resource type="PackedScene" uid="uid://dig1njq2cft4x" path="res://scenes/Elements/Mirror.tscn" id="8_3m3bk"]
+[ext_resource type="FontFile" uid="uid://c7a5sarchiryp" path="res://UI_ASSETS/UI КЛФИ Сфинкс/HondaC (1).ttf" id="9_0fc4x"]
+[ext_resource type="Texture2D" uid="uid://cy7emonypasi7" path="res://ELEMENT_ASSETS/стекло.png" id="10_8mw7u"]
+[ext_resource type="PackedScene" uid="uid://ca8ucfrqnl6j5" path="res://scenes/Elements/Filters/R2.tscn" id="11_0gesw"]
+[ext_resource type="Texture2D" uid="uid://d3qgoh84ylhjo" path="res://ELEMENT_ASSETS/фильтр.png" id="12_isx8e"]
+[ext_resource type="PackedScene" uid="uid://c2ikf52p280ep" path="res://scenes/Elements/Filters/G3.tscn" id="13_4a6o1"]
+[ext_resource type="PackedScene" uid="uid://cnqlia4i0f4wm" path="res://scenes/Elements/Filters/R2G2.tscn" id="14_nan6d"]
+[ext_resource type="PackedScene" uid="uid://dpkhqafqncs8o" path="res://scenes/Elements/Filters/R1G1B1.tscn" id="15_e0pjg"]
+[ext_resource type="PackedScene" uid="uid://4poxp87ht48s" path="res://scenes/Elements/Filters/B2.tscn" id="16_uggi4"]
+[ext_resource type="PackedScene" uid="uid://7n3c7nt2i0an" path="res://scenes/Elements/Filters/R2B1.tscn" id="17_vgeta"]
+[ext_resource type="PackedScene" uid="uid://cho4nh8bt1cg3" path="res://scenes/Elements/Filters/R1B1.tscn" id="18_7lksq"]
+[ext_resource type="PackedScene" uid="uid://dib6mt50hijh8" path="res://scenes/Elements/Filters/R4.tscn" id="19_o3ec6"]
+[ext_resource type="PackedScene" uid="uid://c25hb3coykgmg" path="res://scenes/Elements/Filters/R1G1.tscn" id="20_d4g7j"]
+[ext_resource type="Script" uid="uid://jk04qnoteecw" path="res://scripts/redactor.gd" id="21_hrjif"]
+[ext_resource type="Texture2D" uid="uid://b2qfvp8sgk3bo" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/редактор.png" id="22_hbc3y"]
+[ext_resource type="Texture2D" uid="uid://cl7aejutgcpcr" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/пауза.png" id="23_d64nt"]
+[ext_resource type="PackedScene" uid="uid://bx4t1srnns5ig" path="res://scenes/Elements/Disperser.tscn" id="24_0hjs6"]
+[ext_resource type="Script" uid="uid://camaf3w8fvwr" path="res://scripts/congrats.gd" id="25_ia2xr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jx60h"]
+texture = ExtResource("5_tbfc6")
+
+[sub_resource type="LabelSettings" id="LabelSettings_h8vgy"]
+font = ExtResource("9_0fc4x")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_okxe8"]
+font = ExtResource("9_0fc4x")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ukhgg"]
+font = ExtResource("9_0fc4x")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c3dpg"]
+font = ExtResource("9_0fc4x")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klq1y"]
+size = Vector2(499, 1080)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_knsn4"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dkdbp"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_asqj8"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s8j8v"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ffggp"]
+font = ExtResource("9_0fc4x")
+font_size = 42
+font_color = Color(0, 0, 0, 1)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_0gesw")
+
+[node name="Target" parent="." instance=ExtResource("2_ia2xr")]
+position = Vector2(1650, 521)
+rotation = -1.57089
+target_b = 1
+redactable = false
+
+[node name="Laser" parent="." instance=ExtResource("3_ffggp")]
+position = Vector2(591, 537)
+rotation = 1.57145
+r = 5
+g = 4
+b = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("4_0ve2q")
+offset = Vector2(960, 540)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_right = 498.0
+offset_bottom = 1080.0
+size_flags_horizontal = 4
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 9
+
+[node name="Delete Region" type="PanelContainer" parent="ScrollContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(460, 165)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_jx60h")
+
+[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("6_cqumv")
+alignment = 0
+script = ExtResource("7_coymw")
+element_sc = ExtResource("8_3m3bk")
+count = 1
+
+[node name="Count_Label" type="Label" parent="ScrollContainer/VBoxContainer/Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.795
+anchor_top = 0.607
+anchor_right = 0.94
+anchor_bottom = 0.844
+offset_left = -0.0599976
+offset_top = -0.0110016
+offset_right = 0.0799866
+offset_bottom = -0.0120087
+grow_vertical = 2
+text = "x3"
+label_settings = SubResource("LabelSettings_h8vgy")
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.331
+anchor_top = 0.11
+anchor_right = 1.0
+anchor_bottom = 0.11
+offset_left = 0.09198
+offset_top = -0.0300007
+offset_right = -25.0
+offset_bottom = 26.97
+grow_horizontal = 2
+text = "MIRROR"
+label_settings = SubResource("LabelSettings_okxe8")
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Button"]
+position = Vector2(85, 86)
+scale = Vector2(0.0999377, 0.0999377)
+texture = ExtResource("10_8mw7u")
+
+[node name="Button5" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("6_cqumv")
+alignment = 0
+script = ExtResource("7_coymw")
+element_sc = ExtResource("11_0gesw")
+count = 1
+
+[node name="Count_Label" type="Label" parent="ScrollContainer/VBoxContainer/Button5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.795
+anchor_top = 0.607
+anchor_right = 0.94
+anchor_bottom = 0.844
+offset_left = -0.0599976
+offset_top = -0.0110016
+offset_right = 0.0799866
+offset_bottom = -0.0120087
+grow_vertical = 2
+text = "x3"
+label_settings = SubResource("LabelSettings_ukhgg")
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Button5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.331
+anchor_top = 0.11
+anchor_right = 1.0
+anchor_bottom = 0.11
+offset_left = 0.09198
+offset_top = -0.0300007
+offset_right = -25.0
+offset_bottom = 26.97
+grow_horizontal = 2
+text = "FILTER"
+label_settings = SubResource("LabelSettings_c3dpg")
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Button5"]
+position = Vector2(85, 86)
+scale = Vector2(0.0999377, 0.0999377)
+texture = ExtResource("12_isx8e")
+
+[node name="Button4" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("6_cqumv")
+alignment = 0
+script = ExtResource("7_coymw")
+element_sc = ExtResource("13_4a6o1")
+count = 1
+
+[node name="Count_Label" type="Label" parent="ScrollContainer/VBoxContainer/Button4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.795
+anchor_top = 0.607
+anchor_right = 0.94
+anchor_bottom = 0.844
+offset_left = -0.0599976
+offset_top = -0.0110016
+offset_right = 0.0799866
+offset_bottom = -0.0120087
+grow_vertical = 2
+text = "x3"
+label_settings = SubResource("LabelSettings_ukhgg")
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Button4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.331
+anchor_top = 0.11
+anchor_right = 1.0
+anchor_bottom = 0.11
+offset_left = 0.09198
+offset_top = -0.0300007
+offset_right = -25.0
+offset_bottom = 26.97
+grow_horizontal = 2
+text = "FILTER"
+label_settings = SubResource("LabelSettings_c3dpg")
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Button4"]
+position = Vector2(85, 86)
+scale = Vector2(0.0999377, 0.0999377)
+texture = ExtResource("12_isx8e")
+
+[node name="Button3" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("6_cqumv")
+alignment = 0
+script = ExtResource("7_coymw")
+element_sc = ExtResource("14_nan6d")
+count = 1
+
+[node name="Count_Label" type="Label" parent="ScrollContainer/VBoxContainer/Button3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.795
+anchor_top = 0.607
+anchor_right = 0.94
+anchor_bottom = 0.844
+offset_left = -0.0599976
+offset_top = -0.0110016
+offset_right = 0.0799866
+offset_bottom = -0.0120087
+grow_vertical = 2
+text = "x3"
+label_settings = SubResource("LabelSettings_ukhgg")
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Button3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.331
+anchor_top = 0.11
+anchor_right = 1.0
+anchor_bottom = 0.11
+offset_left = 0.09198
+offset_top = -0.0300007
+offset_right = -25.0
+offset_bottom = 26.97
+grow_horizontal = 2
+text = "FILTER"
+label_settings = SubResource("LabelSettings_c3dpg")
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Button3"]
+position = Vector2(85, 86)
+scale = Vector2(0.0999377, 0.0999377)
+texture = ExtResource("12_isx8e")
+
+[node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("6_cqumv")
+alignment = 0
+script = ExtResource("7_coymw")
+element_sc = ExtResource("15_e0pjg")
+count = 1
+
+[node name="Count_Label" type="Label" parent="ScrollContainer/VBoxContainer/Button2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.795
+anchor_top = 0.607
+anchor_right = 0.94
+anchor_bottom = 0.844
+offset_left = -0.0599976
+offset_top = -0.0110016
+offset_right = 0.0799866
+offset_bottom = -0.0120087
+grow_vertical = 2
+text = "x3"
+label_settings = SubResource("LabelSettings_ukhgg")
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Button2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.331
+anchor_top = 0.11
+anchor_right = 1.0
+anchor_bottom = 0.11
+offset_left = 0.09198
+offset_top = -0.0300007
+offset_right = -25.0
+offset_bottom = 26.97
+grow_horizontal = 2
+text = "FILTER"
+label_settings = SubResource("LabelSettings_c3dpg")
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Button2"]
+position = Vector2(85, 86)
+scale = Vector2(0.0999377, 0.0999377)
+texture = ExtResource("12_isx8e")
+
+[node name="Button6" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("6_cqumv")
+alignment = 0
+script = ExtResource("7_coymw")
+element_sc = ExtResource("16_uggi4")
+count = 1
+
+[node name="Count_Label" type="Label" parent="ScrollContainer/VBoxContainer/Button6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.795
+anchor_top = 0.607
+anchor_right = 0.94
+anchor_bottom = 0.844
+offset_left = -0.0599976
+offset_top = -0.0110016
+offset_right = 0.0799866
+offset_bottom = -0.0120087
+grow_vertical = 2
+text = "x3"
+label_settings = SubResource("LabelSettings_ukhgg")
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Button6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.331
+anchor_top = 0.11
+anchor_right = 1.0
+anchor_bottom = 0.11
+offset_left = 0.09198
+offset_top = -0.0300007
+offset_right = -25.0
+offset_bottom = 26.97
+grow_horizontal = 2
+text = "FILTER"
+label_settings = SubResource("LabelSettings_c3dpg")
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Button6"]
+position = Vector2(85, 86)
+scale = Vector2(0.0999377, 0.0999377)
+texture = ExtResource("12_isx8e")
+
+[node name="Button7" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("6_cqumv")
+alignment = 0
+script = ExtResource("7_coymw")
+element_sc = ExtResource("17_vgeta")
+count = 1
+
+[node name="Count_Label" type="Label" parent="ScrollContainer/VBoxContainer/Button7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.795
+anchor_top = 0.607
+anchor_right = 0.94
+anchor_bottom = 0.844
+offset_left = -0.0599976
+offset_top = -0.0110016
+offset_right = 0.0799866
+offset_bottom = -0.0120087
+grow_vertical = 2
+text = "x3"
+label_settings = SubResource("LabelSettings_ukhgg")
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Button7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.331
+anchor_top = 0.11
+anchor_right = 1.0
+anchor_bottom = 0.11
+offset_left = 0.09198
+offset_top = -0.0300007
+offset_right = -25.0
+offset_bottom = 26.97
+grow_horizontal = 2
+text = "FILTER"
+label_settings = SubResource("LabelSettings_c3dpg")
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Button7"]
+position = Vector2(85, 86)
+scale = Vector2(0.0999377, 0.0999377)
+texture = ExtResource("12_isx8e")
+
+[node name="Button8" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("6_cqumv")
+alignment = 0
+script = ExtResource("7_coymw")
+element_sc = ExtResource("18_7lksq")
+count = 1
+
+[node name="Count_Label" type="Label" parent="ScrollContainer/VBoxContainer/Button8"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.795
+anchor_top = 0.607
+anchor_right = 0.94
+anchor_bottom = 0.844
+offset_left = -0.0599976
+offset_top = -0.0110016
+offset_right = 0.0799866
+offset_bottom = -0.0120087
+grow_vertical = 2
+text = "x3"
+label_settings = SubResource("LabelSettings_ukhgg")
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Button8"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.331
+anchor_top = 0.11
+anchor_right = 1.0
+anchor_bottom = 0.11
+offset_left = 0.09198
+offset_top = -0.0300007
+offset_right = -25.0
+offset_bottom = 26.97
+grow_horizontal = 2
+text = "FILTER"
+label_settings = SubResource("LabelSettings_c3dpg")
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Button8"]
+position = Vector2(85, 86)
+scale = Vector2(0.0999377, 0.0999377)
+texture = ExtResource("12_isx8e")
+
+[node name="Button9" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("6_cqumv")
+alignment = 0
+script = ExtResource("7_coymw")
+element_sc = ExtResource("15_e0pjg")
+count = 1
+
+[node name="Count_Label" type="Label" parent="ScrollContainer/VBoxContainer/Button9"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.795
+anchor_top = 0.607
+anchor_right = 0.94
+anchor_bottom = 0.844
+offset_left = -0.0599976
+offset_top = -0.0110016
+offset_right = 0.0799866
+offset_bottom = -0.0120087
+grow_vertical = 2
+text = "x3"
+label_settings = SubResource("LabelSettings_ukhgg")
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Button9"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.331
+anchor_top = 0.11
+anchor_right = 1.0
+anchor_bottom = 0.11
+offset_left = 0.09198
+offset_top = -0.0300007
+offset_right = -25.0
+offset_bottom = 26.97
+grow_horizontal = 2
+text = "FILTER"
+label_settings = SubResource("LabelSettings_c3dpg")
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Button9"]
+position = Vector2(85, 86)
+scale = Vector2(0.0999377, 0.0999377)
+texture = ExtResource("12_isx8e")
+
+[node name="Button10" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("6_cqumv")
+alignment = 0
+script = ExtResource("7_coymw")
+element_sc = ExtResource("19_o3ec6")
+count = 1
+
+[node name="Count_Label" type="Label" parent="ScrollContainer/VBoxContainer/Button10"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.795
+anchor_top = 0.607
+anchor_right = 0.94
+anchor_bottom = 0.844
+offset_left = -0.0599976
+offset_top = -0.0110016
+offset_right = 0.0799866
+offset_bottom = -0.0120087
+grow_vertical = 2
+text = "x3"
+label_settings = SubResource("LabelSettings_ukhgg")
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Button10"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.331
+anchor_top = 0.11
+anchor_right = 1.0
+anchor_bottom = 0.11
+offset_left = 0.09198
+offset_top = -0.0300007
+offset_right = -25.0
+offset_bottom = 26.97
+grow_horizontal = 2
+text = "FILTER"
+label_settings = SubResource("LabelSettings_c3dpg")
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Button10"]
+position = Vector2(85, 86)
+scale = Vector2(0.0999377, 0.0999377)
+texture = ExtResource("12_isx8e")
+
+[node name="Button11" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("6_cqumv")
+alignment = 0
+script = ExtResource("7_coymw")
+element_sc = ExtResource("20_d4g7j")
+count = 1
+
+[node name="Count_Label" type="Label" parent="ScrollContainer/VBoxContainer/Button11"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.795
+anchor_top = 0.607
+anchor_right = 0.94
+anchor_bottom = 0.844
+offset_left = -0.0599976
+offset_top = -0.0110016
+offset_right = 0.0799866
+offset_bottom = -0.0120087
+grow_vertical = 2
+text = "x3"
+label_settings = SubResource("LabelSettings_ukhgg")
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Button11"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.331
+anchor_top = 0.11
+anchor_right = 1.0
+anchor_bottom = 0.11
+offset_left = 0.09198
+offset_top = -0.0300007
+offset_right = -25.0
+offset_bottom = 26.97
+grow_horizontal = 2
+text = "FILTER"
+label_settings = SubResource("LabelSettings_c3dpg")
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Button11"]
+position = Vector2(85, 86)
+scale = Vector2(0.0999377, 0.0999377)
+texture = ExtResource("12_isx8e")
+
+[node name="Redactor" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(250, 540)
+collision_layer = 3
+script = ExtResource("21_hrjif")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Redactor"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_klq1y")
+
+[node name="Box" type="StaticBody2D" parent="."]
+position = Vector2(1210, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
+position = Vector2(0, 540)
+shape = SubResource("WorldBoundaryShape2D_knsn4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Box"]
+position = Vector2(0, -540)
+shape = SubResource("WorldBoundaryShape2D_dkdbp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Box"]
+position = Vector2(-710, 0)
+shape = SubResource("WorldBoundaryShape2D_asqj8")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Box"]
+position = Vector2(710, 0)
+shape = SubResource("WorldBoundaryShape2D_s8j8v")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("22_hbc3y")
+offset = Vector2(302, 540)
+
+[node name="Pause" type="Button" parent="."]
+offset_left = 1813.0
+offset_top = 22.0
+offset_right = 1902.0
+offset_bottom = 99.0
+icon = ExtResource("23_d64nt")
+
+[node name="Disperser" parent="." instance=ExtResource("24_0hjs6")]
+position = Vector2(941, 369)
+rotation = -0.882622
+redactable = false
+
+[node name="Target2" parent="." instance=ExtResource("2_ia2xr")]
+position = Vector2(981, 117)
+rotation = -2.95561
+is_target = false
+
+[node name="Target3" parent="." instance=ExtResource("2_ia2xr")]
+position = Vector2(1113, 131)
+rotation = -2.57892
+is_target = false
+
+[node name="Target4" parent="." instance=ExtResource("2_ia2xr")]
+position = Vector2(1233, 195)
+rotation = -2.11671
+is_target = false
+
+[node name="Congrats" type="Label" parent="."]
+visible = false
+offset_left = 795.0
+offset_top = 866.0
+offset_right = 862.0
+offset_bottom = 918.0
+text = "WIN"
+label_settings = SubResource("LabelSettings_ffggp")
+script = ExtResource("25_ia2xr")

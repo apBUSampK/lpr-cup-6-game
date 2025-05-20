@@ -13,10 +13,11 @@ func _process(delta: float) -> void:
 			solved = false
 			break
 	if solved:
-		emit_signal("next", next_scene)
+		$Congrats.show()
 
 func _ready() -> void:
 	$Pause.connect("pressed", _on_pause_pressed)
+	PickupController.has_pickup = false
 
 func _on_pause_pressed() -> void:
 	print("pause")

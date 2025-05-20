@@ -18,7 +18,6 @@ signal pickable_removed()
 func _ready() -> void:
 	add_to_group("Element", true)
 	
-	exclusion.global_rotation = 0
 	exclusion.add_to_group("Element_Exclusion", true)
 	
 	exclusion.mouse_entered.connect(_hover_up)
@@ -28,9 +27,10 @@ func _ready() -> void:
 	frames_since_hit.fill(Max_Frames_Till_Reset + 1)
 
 func react(data: RayData) -> void:
-	if data.id < RayIdChecker.max_id:
-		frames_since_hit[data.id] = 0
-	_emit(data)
+	if not overlapping_element:
+		if data.id < RayIdChecker.max_id:
+			frames_since_hit[data.id] = 0
+		_emit(data)
 
 func _emit(data: RayData) -> void:
 	pass

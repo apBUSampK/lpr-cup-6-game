@@ -13,7 +13,8 @@ func _pressed() -> void:
 		var element : Element = element_sc.instantiate()
 		element.carry = true
 		element.pickable_removed.connect(return_element)
-		get_node("/root").add_child(element)
+		var node = get_parent().get_parent().get_parent()
+		node.add_child(element)
 		PickupController.has_pickup = true
 		count -= 1
 		c_label.text = "x"+str(count)

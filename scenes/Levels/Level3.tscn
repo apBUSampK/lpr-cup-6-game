@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://dm51vdppghx1a"]
+[gd_scene load_steps=28 format=3 uid="uid://dm51vdppghx1a"]
 
 [ext_resource type="Script" uid="uid://f0c2hv5feerv" path="res://scripts/Level.gd" id="1_854a7"]
+[ext_resource type="PackedScene" uid="uid://iasqv0qhks4w" path="res://scenes/Levels/Level4.tscn" id="2_0ijgq"]
 [ext_resource type="PackedScene" uid="uid://h6261dtwwgqw" path="res://scenes/Elements/Target.tscn" id="2_50utn"]
 [ext_resource type="PackedScene" uid="uid://dvr0333w10df3" path="res://scenes/Elements/Laser.tscn" id="3_mnjmt"]
 [ext_resource type="Texture2D" uid="uid://m27c1prg06as" path="res://UI_ASSETS/UI КЛФИ Сфинкс/фон.png" id="4_x4bj5"]
@@ -14,6 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://b2qfvp8sgk3bo" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/редактор.png" id="11_14xet"]
 [ext_resource type="PackedScene" uid="uid://c8j0nxm3t3wem" path="res://scenes/Elements/Filters/G2.tscn" id="11_sxpgp"]
 [ext_resource type="Texture2D" uid="uid://cl7aejutgcpcr" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/пауза.png" id="12_2c648"]
+[ext_resource type="Script" uid="uid://camaf3w8fvwr" path="res://scripts/congrats.gd" id="15_5lv35"]
+[ext_resource type="Texture2D" uid="uid://ddgqkkegti6jb" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/редактор2.png" id="16_0ijgq"]
+[ext_resource type="Script" uid="uid://s21h5ud2cxoh" path="res://scripts/tutorial_1.gd" id="17_5a00w"]
+[ext_resource type="LabelSettings" uid="uid://ddud0lt005syb" path="res://resources/text_small.tres" id="18_ab8d6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ukhgg"]
 font = ExtResource("8_0ijgq")
@@ -39,8 +44,14 @@ normal = Vector2(1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s8j8v"]
 normal = Vector2(-1, 0)
 
+[sub_resource type="LabelSettings" id="LabelSettings_14xet"]
+font = ExtResource("8_0ijgq")
+font_size = 42
+font_color = Color(0, 0, 0, 1)
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_854a7")
+next_scene = ExtResource("2_0ijgq")
 
 [node name="Target" parent="." instance=ExtResource("2_50utn")]
 position = Vector2(1650, 521)
@@ -252,3 +263,44 @@ offset_top = 22.0
 offset_right = 1902.0
 offset_bottom = 99.0
 icon = ExtResource("12_2c648")
+
+[node name="Congrats" type="Label" parent="."]
+visible = false
+offset_left = 795.0
+offset_top = 866.0
+offset_right = 862.0
+offset_bottom = 918.0
+text = "WIN"
+label_settings = SubResource("LabelSettings_14xet")
+script = ExtResource("15_5lv35")
+
+[node name="tutorial_1" type="TextureRect" parent="."]
+z_index = 4
+offset_left = 730.0
+offset_top = 375.0
+offset_right = 1190.0
+offset_bottom = 696.0
+pivot_offset = Vector2(230, 165)
+texture = ExtResource("16_0ijgq")
+script = ExtResource("17_5a00w")
+
+[node name="Label" type="Label" parent="tutorial_1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 19.0
+offset_right = 438.0
+offset_bottom = -19.0
+text = "TUT3"
+label_settings = ExtResource("18_ab8d6")
+autowrap_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="tutorial_1"]
+z_index = -1
+layout_mode = 0
+offset_left = -968.0
+offset_top = -515.0
+offset_right = 1554.0
+offset_bottom = 823.0
+color = Color(0, 0, 0, 0.407843)

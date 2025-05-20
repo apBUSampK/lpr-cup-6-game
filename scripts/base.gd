@@ -12,13 +12,19 @@ enum DIALOGUES {
 	Initial = 1,
 	PracticeOnSimple = 2,
 	TrySolveTheFollowing = 3,
-	AReallyDifficult = 4,
+	AReallyDifficult = 4
 }
 
 var MUSIC = {
 	"MENU": "res://music/Меню.mp3",
 	"INGAME": "res://music/InGame.mp3",
-	"DIALOG": "res://music/Dialogue.mp3"
+	"DIALOG": "res://music/Dialogue.mp3",
+	"DF1": "res://music/DF1.mp3",
+	"DF2": "res://music/DF2.mp3",
+	"DF3": "res://music/DF3.mp3",
+	"TF1": "res://music/TF1.mp3",
+	"TF2": "res://music/TF2.mp3",
+	"TF3": "res://music/TF3.mp3",
 }
 
 func _set_music(path: String):
@@ -26,6 +32,8 @@ func _set_music(path: String):
 	$Music.play()
 
 func _ready() -> void:
+	TranslationServer.set_locale("ru")
+	print("locale ru")
 	_set_music(MUSIC['MENU'])
 	if not FileAccess.file_exists("user://lprGame.save"):
 		print("No save data found")
@@ -93,10 +101,29 @@ func _start_new_game_instance():
 func _on_dialogue_dialogue_end(dialogue_number: int) -> void:
 	match dialogue_number:
 		DIALOGUES.Initial:
+			$MenuControl/Dialogue.hide()
 			$MenuControl/Dialogue.UpdateDialogue(DIALOGUES.PracticeOnSimple)
+			_start_new_game_instance()
 		DIALOGUES.PracticeOnSimple:
 			$MenuControl/Dialogue.hide()
-			_start_new_game_instance()
+			$MenuControl/Dialogue.UpdateDialogue(DIALOGUES.TrySolveTheFollowing)
+			game_inst = load("res://scenes/Levels/Level6.tscn").instantiate()
+			add_child(game_inst)
+			_set_music(MUSIC['TF1'])
+			game_inst.next.connect(_load_next_scene)
+		DIALOGUES.TrySolveTheFollowing:
+			$MenuControl/Dialogue.hide()
+			$MenuControl/Dialogue.UpdateDialogue(DIALOGUES.AReallyDifficult)
+			game_inst = load("res://scenes/Levels/Level7.tscn").instantiate()
+			add_child(game_inst)
+			_set_music(MUSIC['TF2'])
+			game_inst.next.connect(_load_next_scene)
+		DIALOGUES.AReallyDifficult:
+			$MenuControl/Dialogue.hide()
+			game_inst = load("res://scenes/Levels/Level8.tscn").instantiate()
+			add_child(game_inst)
+			_set_music(MUSIC['TF3'])
+			game_inst.next.connect(_load_next_scene)
 
 func _save_game() -> void:
 	var save_file = FileAccess.open("user://lprGame.save", FileAccess.WRITE)
@@ -113,7 +140,24 @@ func _pause() -> void:
 
 # Switch to next game scene
 func _load_next_scene(next_scene: PackedScene) -> void:
+	#cleanup states
+	RayIdChecker._init()
+	PickupController.has_pickup = false
+	
+	level_number += 1
+	
+	match level_number:
+		6:
+			_set_music(MUSIC['DF1'])
+		7:
+			_set_music(MUSIC['DF2'])
+		8:
+			_set_music(MUSIC['DF3'])
+	
 	game_inst.queue_free()
-	game_inst = next_scene.instantiate()
-	add_child(game_inst)
-	game_inst.next.connect(_load_next_scene)
+	if next_scene != null:
+		game_inst = next_scene.instantiate()
+		add_child(game_inst)
+		game_inst.next.connect(_load_next_scene)
+	else:
+		$MenuControl/Dialogue.show()

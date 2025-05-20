@@ -10,3 +10,5 @@ func _ready() -> void:
 	ray.data.green_p = g
 	ray.data.blue_p = b
 	ray.recolor()
+	
+	$Exclusion.add_to_group("Element_Exclusion")

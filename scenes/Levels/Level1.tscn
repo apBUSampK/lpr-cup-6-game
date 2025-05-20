@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b7vhfjrbyr5pc"]
+[gd_scene load_steps=26 format=3 uid="uid://b7vhfjrbyr5pc"]
 
 [ext_resource type="Script" uid="uid://f0c2hv5feerv" path="res://scripts/Level.gd" id="1_nu2g1"]
 [ext_resource type="Texture2D" uid="uid://m27c1prg06as" path="res://UI_ASSETS/UI КЛФИ Сфинкс/фон.png" id="2_5mhgh"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://ddgqkkegti6jb" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/редактор2.png" id="14_dfih8"]
 [ext_resource type="Script" uid="uid://s21h5ud2cxoh" path="res://scripts/tutorial_1.gd" id="15_n31k3"]
 [ext_resource type="LabelSettings" uid="uid://ddud0lt005syb" path="res://resources/text_small.tres" id="16_jng41"]
+[ext_resource type="Script" uid="uid://camaf3w8fvwr" path="res://scripts/congrats.gd" id="17_yclo3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_asqj8"]
 font = ExtResource("7_84hcr")
@@ -41,6 +42,11 @@ normal = Vector2(1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s8j8v"]
 normal = Vector2(-1, 0)
 
+[sub_resource type="LabelSettings" id="LabelSettings_84hcr"]
+font = ExtResource("7_84hcr")
+font_size = 42
+font_color = Color(0, 0, 0, 1)
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_nu2g1")
 next_scene = ExtResource("2_dfih8")
@@ -48,7 +54,7 @@ metadata/_edit_vertical_guides_ = [960.0]
 metadata/_edit_horizontal_guides_ = [540.0]
 
 [node name="Target" parent="." instance=ExtResource("13_5mhgh")]
-position = Vector2(721, 613)
+position = Vector2(721, 622)
 rotation = -3.14031
 target_r = 5
 target_g = 5
@@ -165,8 +171,17 @@ offset_right = 1902.0
 offset_bottom = 99.0
 icon = ExtResource("12_sfku4")
 
-[node name="tutorial_1" type="TextureRect" parent="."]
+[node name="Congrats" type="Label" parent="."]
 visible = false
+offset_left = 795.0
+offset_top = 866.0
+offset_right = 862.0
+offset_bottom = 918.0
+text = "WIN"
+label_settings = SubResource("LabelSettings_84hcr")
+script = ExtResource("17_yclo3")
+
+[node name="tutorial_1" type="TextureRect" parent="."]
 z_index = 4
 offset_left = 730.0
 offset_top = 375.0
@@ -186,6 +201,7 @@ offset_right = 438.0
 offset_bottom = -19.0
 text = "TUT1"
 label_settings = ExtResource("16_jng41")
+autowrap_mode = 3
 
 [node name="ColorRect" type="ColorRect" parent="tutorial_1"]
 z_index = -1

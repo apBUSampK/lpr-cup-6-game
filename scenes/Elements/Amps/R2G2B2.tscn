@@ -20,6 +20,7 @@ script = ExtResource("1_wuwus")
 red_power = 2
 green_power = 2
 blue_power = 2
+max_spectral_power = 10
 metadata/_edit_vertical_guides_ = [-50.0, 50.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

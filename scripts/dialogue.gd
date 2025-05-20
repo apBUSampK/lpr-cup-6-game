@@ -5,8 +5,8 @@ const LINES_VISIBLE := 3
 signal dialogue_end(dialogue_number: int)
 @onready var text_box = $Dialogue/Text
 
-const cat_appears_en := [0, 24, 0, 0, 0]
-const cat_appears_ru := [0, 21, 0, 0, 0]
+const cat_appears_en := [1, 0, 0, 0, 0]
+const cat_appears_ru := [1, 0 , 0, 0, 0]
 
 var dialogue_number = 0
 

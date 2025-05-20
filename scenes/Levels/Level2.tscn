@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://8s3rkilsyxp8"]
+[gd_scene load_steps=24 format=3 uid="uid://8s3rkilsyxp8"]
 
 [ext_resource type="Script" uid="uid://f0c2hv5feerv" path="res://scripts/Level.gd" id="1_g28dl"]
 [ext_resource type="Texture2D" uid="uid://m27c1prg06as" path="res://UI_ASSETS/UI КЛФИ Сфинкс/фон.png" id="2_7dhlb"]
 [ext_resource type="PackedScene" uid="uid://h6261dtwwgqw" path="res://scenes/Elements/Target.tscn" id="2_g28dl"]
+[ext_resource type="PackedScene" uid="uid://dm51vdppghx1a" path="res://scenes/Levels/Level3.tscn" id="2_ukhgg"]
 [ext_resource type="Texture2D" uid="uid://trhoq3bn8ard" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/элемент.png" id="4_c3dpg"]
 [ext_resource type="Script" uid="uid://wribtmr82mae" path="res://scripts/spawn.gd" id="5_hvvlp"]
 [ext_resource type="PackedScene" uid="uid://dig1njq2cft4x" path="res://scenes/Elements/Mirror.tscn" id="6_kdmjy"]
@@ -12,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b2qfvp8sgk3bo" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/редактор.png" id="11_ehl3w"]
 [ext_resource type="PackedScene" uid="uid://dvr0333w10df3" path="res://scenes/Elements/Laser.tscn" id="12_g28dl"]
 [ext_resource type="Texture2D" uid="uid://cl7aejutgcpcr" path="res://UI_ASSETS/UI КЛФИ Сфинкс/Игровое меню/пауза.png" id="12_vpk81"]
+[ext_resource type="Script" uid="uid://camaf3w8fvwr" path="res://scripts/congrats.gd" id="13_hvvlp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ukhgg"]
 font = ExtResource("7_ntnn5")
@@ -40,8 +42,14 @@ normal = Vector2(-1, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hvvlp"]
 size = Vector2(40, 40)
 
+[sub_resource type="LabelSettings" id="LabelSettings_6gy1u"]
+font = ExtResource("7_ntnn5")
+font_size = 42
+font_color = Color(0, 0, 0, 1)
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_g28dl")
+next_scene = ExtResource("2_ukhgg")
 
 [node name="Target" parent="." instance=ExtResource("2_g28dl")]
 position = Vector2(1621, 245)
@@ -53,7 +61,6 @@ redactable = false
 [node name="Laser" parent="." instance=ExtResource("12_g28dl")]
 position = Vector2(591, 537)
 rotation = 1.57145
-scale = Vector2(1, 1)
 r = 5
 g = 0
 b = 5
@@ -218,3 +225,13 @@ offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
 color = Color(0, 0, 0, 1)
+
+[node name="Congrats" type="Label" parent="."]
+visible = false
+offset_left = 795.0
+offset_top = 866.0
+offset_right = 862.0
+offset_bottom = 918.0
+text = "WIN"
+label_settings = SubResource("LabelSettings_6gy1u")
+script = ExtResource("13_hvvlp")
